@@ -3,7 +3,13 @@ import React from 'react';
 class LetterInput extends React.Component{
     constructor(props){
         super(props);
-        this.state = {value: ''};
+        this.state = {
+            value: '',
+            attempts: 0,
+            lettersProvided: [],
+            properLetters:   [], //TBD
+            wrongLetters:    []  //TBD
+        };
 
         this.submitForm = this.submitForm.bind(this);
         this.inputChange = this.inputChange.bind(this);
@@ -15,7 +21,12 @@ class LetterInput extends React.Component{
 
     submitForm(e){
         e.preventDefault();
-        console.log( this.state.value );
+        this.setState({
+            lettersProvided: [...this.state.lettersProvided, this.state.value],
+            value: ''
+        })
+
+        queueMicrotask(() => console.log(this.state.lettersProvided)); //DEV
     }
 
     render(){
