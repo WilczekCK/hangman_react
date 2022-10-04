@@ -42,9 +42,19 @@ class LetterInput extends React.Component{
 
     render(){
         return (
-            <form onSubmit={this.submitForm}>
-                <input type="text" value={this.state.value} onChange={this.inputChange} maxLength="1"/>
-            </form>
+            <div>
+                <h3>Provided letters are:</h3>
+                
+                <div>
+                    {this.state.lettersProvided.map((item, key) => 
+                        <span>{item}</span>
+                    )} 
+                </div>
+
+                <form onSubmit={this.submitForm}>
+                    <input type="text" value={this.state.value} onChange={this.inputChange} maxLength="1"/>
+                </form>
+            </div>
         );
     }
 }
