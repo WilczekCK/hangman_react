@@ -21,12 +21,23 @@ class LetterInput extends React.Component{
 
     submitForm(e){
         e.preventDefault();
+        if( !this.isLetterActualInArray(this.state.value) ) return false;
+
         this.setState({
             lettersProvided: [...this.state.lettersProvided, this.state.value],
             value: ''
         })
 
         queueMicrotask(() => console.log(this.state.lettersProvided)); //DEV
+    }
+
+    isLetterActualInArray( newLetter ){
+        if( this.state.lettersProvided.includes(newLetter) ) {
+            alert('This letter was provided earlier, type another one.');
+            return false;
+        }
+
+        return newLetter;
     }
 
     render(){
