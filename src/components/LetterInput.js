@@ -64,7 +64,7 @@ class LetterInput extends React.Component{
                 
                 <div>
                     {this.state.lettersProvided.map((item, key) => 
-                        <span>{item}</span>
+                        <span key={key}>{item}</span>
                     )} 
                 </div>
 
