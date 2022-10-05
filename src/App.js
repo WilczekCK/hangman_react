@@ -5,7 +5,7 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <LetterInput wordToGuess='Rotatee'/>
+      <LetterInput wordToGuess='Kolorowe Korale Królowej Karoliny'/>
     </div>
   );
 }

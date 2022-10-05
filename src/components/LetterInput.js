@@ -63,8 +63,10 @@ class LetterInput extends React.Component{
         const that = this;
 
         function Letter(props){
-            if( that.state.properLetters.includes(props.value) || that.state.properLetters.includes( props.value.toUpperCase() ) ){
+            if( that.state.properLetters.includes(props.value) ){
                 return <span> {props.value} </span>
+            } else if( props.value === ' ' ){
+                return <span class="blank_space"></span>
             } else {
                 return <span></span>
             }
