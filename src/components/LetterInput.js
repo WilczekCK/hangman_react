@@ -6,6 +6,7 @@ class LetterInput extends React.Component{
         this.state = {
             value: '',
             attempts: 0,
+            wordToGuess: props.wordToGuess,
             lettersProvided: [],
             properLetters:   [], //TBD
             wrongLetters:    []  //TBD
@@ -13,6 +14,12 @@ class LetterInput extends React.Component{
 
         this.submitForm = this.submitForm.bind(this);
         this.inputChange = this.inputChange.bind(this);
+        this.assignLetterToArray = this.assignLetterToArray.bind(this);
+    }
+
+    assignLetterToArray(){
+
+        //this.state.value
     }
 
     inputChange(e){
@@ -21,19 +28,23 @@ class LetterInput extends React.Component{
 
     submitForm(e){
         e.preventDefault();
-        if( !this.isLetterActualInArray(this.state.value) ) return false;
+        if( !this.isLetterActualInArray(this.state.value) ) {
+            alert('This letter was provided earlier, type another one.');
+            return false;
+        }
 
         this.setState({
             lettersProvided: [...this.state.lettersProvided, this.state.value],
             value: ''
         })
 
+        this.assignLetterToArray();
+
         queueMicrotask(() => console.log(this.state.lettersProvided)); //DEV
     }
 
     isLetterActualInArray( newLetter ){
         if( this.state.lettersProvided.includes(newLetter) ) {
-            alert('This letter was provided earlier, type another one.');
             return false;
         }
 
