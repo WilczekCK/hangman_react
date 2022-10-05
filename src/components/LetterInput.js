@@ -1,5 +1,29 @@
 import React from 'react';
 
+class LetterBox extends React.Component{
+    constructor(props){
+        super(props);
+
+        this.createSingleLetter = this.createSingleLetter.bind(this);
+    }
+
+    handleChange
+
+    createSingleLetter(){
+        if( this.props.properLetters.includes( this.props.value ) ){
+            return <span data-letter={this.props.value}> {this.props.value} </span>
+        } else if( this.props.value === ' ' ){
+            return <span className="blank_space"></span>
+        } else {
+            return <span></span>
+        }
+    }
+
+    render(){
+        return this.createSingleLetter();
+    }
+}
+
 class LetterInput extends React.Component{
     constructor(props){
         super(props);
@@ -60,20 +84,8 @@ class LetterInput extends React.Component{
     }
 
     refreshLetterBoxes(){
-        const that = this;
-
-        function Letter(props){
-            if( that.state.properLetters.includes(props.value) ){
-                return <span> {props.value} </span>
-            } else if( props.value === ' ' ){
-                return <span class="blank_space"></span>
-            } else {
-                return <span></span>
-            }
-        }
-
         return (Array.from(this.state.wordToGuess).map((item, key) => 
-            <Letter key={key} value={item} />
+            <LetterBox key={key} value={item} properLetters={this.state.properLetters} wrongLetters={this.state.wrongLetters} />
         ))
     }
 
