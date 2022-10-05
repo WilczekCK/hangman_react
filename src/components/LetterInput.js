@@ -62,9 +62,9 @@ class LetterInput extends React.Component{
             <div>
                 <h3>Provided letters are:</h3>
                 
-                <div>
-                    {this.state.lettersProvided.map((item, key) => 
-                        <span key={key}>{item}</span>
+                <div className="letter_boxes">
+                    {Array.from(this.state.wordToGuess).map((item, key) => 
+                        <span key={key}></span>
                     )} 
                 </div>
 
