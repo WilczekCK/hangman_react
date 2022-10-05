@@ -4,3 +4,4 @@
 
 .letter_boxes { display:flex; flex-direction:row; justify-content: center; padding:20px;}
 .letter_boxes span{ border-bottom:2px solid black; width:25px; margin-left:5px;}
+.letter_boxes span:first-of-type{ text-transform: uppercase; }

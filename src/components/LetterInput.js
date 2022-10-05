@@ -6,7 +6,7 @@ class LetterInput extends React.Component{
         this.state = {
             value: '',
             attempts: 0,
-            wordToGuess: props.wordToGuess,
+            wordToGuess: props.wordToGuess.toLowerCase(),
             lettersProvided: [],
             properLetters:   [],
             wrongLetters:    []
