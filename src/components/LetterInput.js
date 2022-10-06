@@ -1,5 +1,4 @@
 import React from 'react';
-import LetterBox from './LetterBox';
 
 class LetterInput extends React.Component{
     constructor(props){
@@ -44,9 +43,8 @@ class LetterInput extends React.Component{
         })
 
         this.assignLetterToArray();
-        this.props.onLetterChange( this.state );
         
-        queueMicrotask(() => console.log(this.state.lettersProvided)); //DEV
+        queueMicrotask(() => this.props.onLetterChange( this.state )); //DEV
     }
 
     isLetterActualInArray( newLetter ){
