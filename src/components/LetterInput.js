@@ -18,16 +18,15 @@ class LetterInput extends React.Component{
     }
 
     assignLetterToArray(){
-        const valueToLower = this.state.value.toLowerCase();
-        if( Array.from( this.state.wordToGuess.toLowerCase() ).includes(valueToLower) ){
-            this.setState({ properLetters: [...this.state.properLetters, valueToLower] })            
+        if( Array.from( this.state.wordToGuess.toLowerCase() ).includes(this.state.value) ){
+            this.setState({ properLetters: [...this.state.properLetters, this.state.value] })            
         } else {
-            this.setState({ wrongLetters: [...this.state.wrongLetters, valueToLower] })
+            this.setState({ wrongLetters: [...this.state.wrongLetters, this.state.value] })
         }
     }
 
     inputChange(e){
-        this.setState({ value: e.target.value })
+        this.setState({ value: e.target.value.toLowerCase() })
     }
 
     submitForm(e){
@@ -38,7 +37,7 @@ class LetterInput extends React.Component{
         }
 
         this.setState({
-            lettersProvided: [...this.state.lettersProvided, this.state.value.toLowerCase()],
+            lettersProvided: [...this.state.lettersProvided, this.state.value],
             value: ''
         })
 
@@ -48,8 +47,6 @@ class LetterInput extends React.Component{
     }
 
     isLetterActualInArray( newLetter ){
-        newLetter = newLetter.toLowerCase(); //force!
-
         if( this.state.lettersProvided.includes(newLetter) ) {
             return false;
         }

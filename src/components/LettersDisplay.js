@@ -18,29 +18,25 @@ class LettersDisplay extends React.Component{
     handleLettersChange(e){
         const { wrongLetters, properLetters } = e;
 
-        console.log(properLetters);
-
-        this.setState({
-            wrongLetters,
-            properLetters
-        })
+        this.setState({wrongLetters, properLetters})
 
         queueMicrotask(() => this.renderLetterBoxes(wrongLetters, properLetters));
     }
 
     renderLetterBoxes() { 
-        return (Array.from(this.props.wordToGuess).map((item, key) => 
+        return (Array.from( this.props.wordToGuess.toLowerCase() ).map((item, key) => 
            <LetterBox key={key} value={item} properLetters={this.state.properLetters} wrongLetters={this.state.wrongLetters} />
         ))
     }
 
     render(){
-        return (<div>
-                <div className="letter_boxes">
-                    { this.renderLetterBoxes() }
-                </div>
+        return (
+        <div>
+            <div className="letter_boxes">
+                { this.renderLetterBoxes() }
+            </div>
 
-                <LetterInput onLetterChange={this.handleLettersChange} wordToGuess={this.props.wordToGuess} />
+            <LetterInput onLetterChange={this.handleLettersChange} wordToGuess={ this.props.wordToGuess.toLowerCase() } />
         </div>)
         
     }
