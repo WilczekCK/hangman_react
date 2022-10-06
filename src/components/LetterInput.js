@@ -16,7 +16,6 @@ class LetterInput extends React.Component{
         this.submitForm = this.submitForm.bind(this);
         this.inputChange = this.inputChange.bind(this);
         this.assignLetterToArray = this.assignLetterToArray.bind(this);
-        this.refreshLetterBoxes = this.refreshLetterBoxes.bind(this);
     }
 
     assignLetterToArray(){
@@ -45,8 +44,8 @@ class LetterInput extends React.Component{
         })
 
         this.assignLetterToArray();
-        this.refreshLetterBoxes();
-
+        this.props.onLetterChange( this.state );
+        
         queueMicrotask(() => console.log(this.state.lettersProvided)); //DEV
     }
 
@@ -60,25 +59,11 @@ class LetterInput extends React.Component{
         return newLetter;
     }
 
-    refreshLetterBoxes(){
-        return (Array.from(this.state.wordToGuess).map((item, key) => 
-            <LetterBox key={key} value={item} properLetters={this.state.properLetters} wrongLetters={this.state.wrongLetters} />
-        ))
-    }
-
     render(){
         return (
-            <div>
-                <h3>Provided letters are:</h3>
-                
-                <div className="letter_boxes">
-                    { this.refreshLetterBoxes() }
-                </div>
-
-                <form onSubmit={this.submitForm}>
-                    <input type="text" value={this.state.value} onChange={this.inputChange} maxLength="1"/>
-                </form>
-            </div>
+            <form onSubmit={this.submitForm}>
+                <input type="text" value={this.state.value} onChange={this.inputChange} maxLength="1"/>
+            </form>
         );
     }
 }
