@@ -1,5 +1,4 @@
 import React from 'react';
-import LetterInput from './LetterInput';
 import LetterBox from './LetterBox';
 
 class LettersDisplay extends React.Component{
@@ -7,38 +6,18 @@ class LettersDisplay extends React.Component{
         super(props);
 
         this.renderLetterBoxes = this.renderLetterBoxes.bind(this);
-        this.handleLettersChange = this.handleLettersChange.bind(this);
-
-        this.state = {
-            wrongLetters: '',
-            properLetters: ''
-        }
-    }
-
-    handleLettersChange(e){
-        const { wrongLetters, properLetters } = e;
-
-        this.setState({wrongLetters, properLetters})
-
-        queueMicrotask(() => this.renderLetterBoxes(wrongLetters, properLetters));
     }
 
     renderLetterBoxes() { 
         return (Array.from( this.props.wordToGuess.toLowerCase() ).map((item, key) => 
-           <LetterBox key={key} value={item} properLetters={this.state.properLetters} wrongLetters={this.state.wrongLetters} />
+          <LetterBox key={key} value={item} properLetters={this.props.properLetters} wrongLetters={this.props.wrongLetters} />
         ))
     }
 
     render(){
         return (
-        <div>
-            <div className="letter_boxes">
-                { this.renderLetterBoxes() }
-            </div>
-
-            <LetterInput onLetterChange={this.handleLettersChange} wordToGuess={ this.props.wordToGuess.toLowerCase() } />
-        </div>)
-        
+            <div className="letter_boxes"> { this.renderLetterBoxes() } </div>
+        )
     }
 }
 
