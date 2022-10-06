@@ -16,7 +16,7 @@ class LettersPanel extends React.Component{
 
     render(){
         return (
-            <div>
+            <div className="letters__container">
                 <LettersDisplay 
                     properLetters={this.state.properLetters} 
                     wrongLetters={this.state.wrongLetters}
@@ -27,6 +27,8 @@ class LettersPanel extends React.Component{
                     onLetterChange={this.onLetterChange}
                     wordToGuess={this.props.wordToGuess.toLowerCase()} 
                 />
+
+                <button>Guess</button>
             </div>
         )
     }

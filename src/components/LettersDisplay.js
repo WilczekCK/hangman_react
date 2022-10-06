@@ -16,7 +16,7 @@ class LettersDisplay extends React.Component{
 
     render(){
         return (
-            <div className="letter_boxes"> { this.renderLetterBoxes() } </div>
+            <div className="letters__container--letters"> { this.renderLetterBoxes() } </div>
         )
     }
 }
