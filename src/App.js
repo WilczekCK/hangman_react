@@ -1,11 +1,11 @@
 import logo from './logo.svg';
-import LettersDisplay from './components/LettersDisplay';
+import LettersPanel from './layouts/LettersPanel';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <LettersDisplay wordToGuess='Kolorowe Korale Królowej Karoliny'/>
+      <LettersPanel wordToGuess='Kolorowe Korale Królowej Karoliny'/>
     </div>
   );
 }

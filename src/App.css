@@ -2,7 +2,9 @@
   text-align: center;
 }
 
-.letter_boxes { display:flex; flex-direction:row; justify-content: center; padding:20px;}
-.letter_boxes span{ border-bottom:2px solid black; width:25px; margin-left:5px;}
-.letter_boxes span:first-of-type{ text-transform: uppercase; }
-.letter_boxes span.blank_space{ border-bottom:unset; }
+.letters__container button {padding:5px 20px; margin-top:10px; border-radius:0px; box-shadow:unset; border-color:transparent; background:black; color:white}
+.letters__container--letters { display:flex; flex-direction:row; justify-content: center; padding:20px;}
+.letters__container--letters span{ border-bottom:2px solid black; width:25px; margin-left:5px;}
+.letters__container--letters span:first-of-type{ text-transform: uppercase; }
+.letters__container--letters span.letters__container--letters--blank{ border-bottom:unset; }
+

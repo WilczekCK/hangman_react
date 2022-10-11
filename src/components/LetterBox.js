@@ -14,7 +14,7 @@ class LetterBox extends React.Component{
         if( properLetters.includes( inputLetter ) ){
             return <span data-letter={inputLetter}> {inputLetter} </span>
         } else if( inputLetter === ' ' ){
-            return <span className="blank_space"></span>
+            return <span className="letters__container--letters--blank"></span>
         } else {
             return <span></span>
         }
