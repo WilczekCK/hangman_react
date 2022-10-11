@@ -2,7 +2,12 @@
   text-align: center;
 }
 
-.letters__container button {padding:5px 20px; margin-top:10px; border-radius:0px; box-shadow:unset; border-color:transparent; background:black; color:white}
+.letters__container { padding:40px 0px; }
+
+.letters__container form { display: flex; flex-direction: column; align-items: center; margin-top:20px; color:grey;}
+.letters__container form button {padding:10px 0px; margin:10px 0px; margin-bottom:5px; font-weight:600; border-radius:0px; box-shadow:unset; border-color:transparent; background:black; color:white; width: 250px;}
+.letters__container form input { width:245px; height:30px; text-align:center}
+
 .letters__container--letters { display:flex; flex-direction:row; justify-content: center; padding:20px;}
 .letters__container--letters span{ border-bottom:2px solid black; width:25px; margin-left:5px;}
 .letters__container--letters span:first-of-type{ text-transform: uppercase; }

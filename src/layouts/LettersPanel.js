@@ -27,8 +27,6 @@ class LettersPanel extends React.Component{
                     onLetterChange={this.onLetterChange}
                     wordToGuess={this.props.wordToGuess.toLowerCase()} 
                 />
-
-                <button>Guess</button>
             </div>
         )
     }
