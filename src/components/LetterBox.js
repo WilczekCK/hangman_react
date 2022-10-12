@@ -12,7 +12,11 @@ class LetterBox extends React.Component{
         const inputLetter = this.props.value;
 
         if( properLetters.includes( inputLetter ) ){
-            return <span data-letter={inputLetter}> {inputLetter} </span>
+            if( this.props.repeatedLetter ) {
+                return <span className="letters__container--letters--repeated"> {inputLetter} </span>
+            }
+
+            return <span> {inputLetter} </span>
         } else if( inputLetter === ' ' ){
             return <span className="letters__container--letters--blank"></span>
         } else {

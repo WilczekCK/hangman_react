@@ -15,8 +15,15 @@ class LettersPanel extends React.Component{
         this.setState({ wrongLetters: e.wrongLetters, properLetters: e.properLetters })
     }
 
+
+
     onLetterExists(letter){
         this.setState({ repeatedLetter: letter });
+
+        // That effect is just for a moment, to inform an user.
+        setTimeout(() => {
+            this.setState({ repeatedLetter: '' });
+        }, 3000)
     }
 
     render(){
