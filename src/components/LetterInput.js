@@ -33,6 +33,7 @@ class LetterInput extends React.Component{
         e.preventDefault();
         if( !this.isLetterActualInArray(this.state.value) ) {
             this.props.onLetterExists( this.state.value );
+            this.setState({value: ''});
             return false;
         }
 
