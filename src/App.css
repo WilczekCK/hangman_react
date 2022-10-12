@@ -13,3 +13,5 @@
 .letters__container--letters span:first-of-type{ text-transform: uppercase; }
 .letters__container--letters span.letters__container--letters--blank{ border-bottom:unset; }
 
+@keyframes bounce { 0% { transform: translateY(0); } 100% { transform: translateY(-10px); font-size:1.2em; } }
+.letters__container--letters .letters__container--letters--repeated { animation: bounce 0.8s infinite alternate; } 
