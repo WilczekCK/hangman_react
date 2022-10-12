@@ -1,6 +1,7 @@
 import React from 'react';
 import LettersDisplay from '../components/LettersDisplay';
 import LetterInput from '../components/LetterInput';
+import LetterTips from '../components/LetterTips';
 
 class LettersPanel extends React.Component{
     constructor(props){
@@ -39,6 +40,11 @@ class LettersPanel extends React.Component{
                     wrongLetters={this.state.wrongLetters}
                     repeatedLetter={this.state.repeatedLetter}
                     wordToGuess='Kolorowe Korale Królowej Karoliny'
+                />
+
+                <LetterTips
+                    wrongLetters={this.state.wrongLetters}
+                    repeatedLetter={this.state.repeatedLetter}
                 />
                 
                 <LetterInput 
