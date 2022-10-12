@@ -9,19 +9,24 @@ class LettersPanel extends React.Component{
         this.state = { wrongLetters: '', properLetters: '', repeatedLetter: '' }
         this.onLetterChange = this.onLetterChange.bind(this);
         this.onLetterExists = this.onLetterExists.bind(this);
+
+        this.isRepeatedEffectOn = false;
     }
 
     onLetterChange(e){
         this.setState({ wrongLetters: e.wrongLetters, properLetters: e.properLetters })
     }
 
-
-
     onLetterExists(letter){
         this.setState({ repeatedLetter: letter });
+        
+        if( this.isRepeatedEffectOn !== false ) {
+          clearTimeout(this.isRepeatedEffectOn);
+          this.isRepeatedEffectOn = false;
+        }
 
         // That effect is just for a moment, to inform an user.
-        setTimeout(() => {
+        this.isRepeatedEffectOn = setTimeout(() => {
             this.setState({ repeatedLetter: '' });
         }, 3000)
     }
