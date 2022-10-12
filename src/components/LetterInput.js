@@ -32,7 +32,7 @@ class LetterInput extends React.Component{
     submitForm(e){
         e.preventDefault();
         if( !this.isLetterActualInArray(this.state.value) ) {
-            alert('This letter was provided earlier, type another one.');
+            this.props.onLetterExists( this.state.value );
             return false;
         }
 
@@ -43,7 +43,7 @@ class LetterInput extends React.Component{
 
         this.assignLetterToArray();
         
-        queueMicrotask(() => this.props.onLetterChange( this.state )); //DEV
+        queueMicrotask(() => this.props.onLetterChange( this.state ));
     }
 
     isLetterActualInArray( newLetter ){
