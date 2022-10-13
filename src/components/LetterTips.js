@@ -5,14 +5,17 @@ class LetterTips extends React.Component{
         super(props);
 
     }
-
-
-
     render(){
-        if(  this.props.isLastGuessOkay ){
-            return 'All okay!';
-        } else {
-            return 'Wrong!';
+        const {isLastGuessOkay, repeatedLetter} = this.props;
+
+        if ( isLastGuessOkay === null ) { //init
+            return '';
+        } else if( isLastGuessOkay && repeatedLetter ){ //the same letter
+            return 'That letter is already provided'
+        } else if( isLastGuessOkay ) { //ok
+            return 'Go further...'
+        } else { //wrong letter
+            return 'Wrong letter!'
         }
     }
 }
