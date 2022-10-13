@@ -9,7 +9,11 @@ class LetterTips extends React.Component{
 
 
     render(){
-
+        if(  this.props.isLastGuessOkay ){
+            return 'All okay!';
+        } else {
+            return 'Wrong!';
+        }
     }
 }
 

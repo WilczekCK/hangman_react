@@ -7,9 +7,10 @@ class LetterInput extends React.Component{
             value: '',
             attempts: 0,
             wordToGuess: props.wordToGuess.toLowerCase(),
+            isLastGuessOkay: null,
             lettersProvided: [],
             properLetters:   [],
-            wrongLetters:    []
+            wrongLetters:    [],
         };
 
         this.submitForm = this.submitForm.bind(this);
@@ -19,9 +20,9 @@ class LetterInput extends React.Component{
 
     assignLetterToArray(){
         if( Array.from( this.state.wordToGuess.toLowerCase() ).includes(this.state.value) ){
-            this.setState({ properLetters: [...this.state.properLetters, this.state.value] })            
+            this.setState({ properLetters: [...this.state.properLetters, this.state.value], isLastGuessOkay: true })            
         } else {
-            this.setState({ wrongLetters: [...this.state.wrongLetters, this.state.value] })
+            this.setState({ wrongLetters: [...this.state.wrongLetters, this.state.value], isLastGuessOkay: false })
         }
     }
 
@@ -32,7 +33,7 @@ class LetterInput extends React.Component{
     submitForm(e){
         e.preventDefault();
         if( !this.isLetterActualInArray(this.state.value) ) {
-            this.props.onLetterExists( this.state.value );
+            this.props.onLetterExists( this.state );
             return false;
         }
 
