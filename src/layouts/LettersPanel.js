@@ -11,39 +11,34 @@ class LettersPanel extends React.Component{
         this.onLetterChange = this.onLetterChange.bind(this);
         this.onLetterExists = this.onLetterExists.bind(this);
         this.onWrongLetter = this.onWrongLetter.bind(this);
+        this.repeatedLetterEffectReset = this.repeatedLetterEffectReset.bind(this);
         
         this.isRepeatedEffectOn = false;
     }
 
+    repeatedLetterEffectReset(){
+        if( this.isRepeatedEffectOn !== false ) {
+            clearTimeout(this.isRepeatedEffectOn);
+            this.isRepeatedEffectOn = false;
+        }
+        
+        this.setState({repeatedLetter: ''})
+    }
+
     onLetterChange(e){
-        let additionalSettings;
-        if ( this.isRepeatedEffectOn ) { 
-            clearTimeout(this.isRepeatedEffectOn) 
-            additionalSettings = {
-                repeatedLetter: '',
-                isRepeatedEffectOn: false
-            }
-        };
+        this.repeatedLetterEffectReset();
 
         this.setState({
             wrongLetters: e.wrongLetters,
             properLetters: e.properLetters,
             isLastGuessOkay: e.isLastGuessOkay,
-            ...additionalSettings
         })
     }
 
     onWrongLetter(){
-        let additionalSettings;
-        if ( this.isRepeatedEffectOn ) { 
-            clearTimeout(this.isRepeatedEffectOn) 
-            additionalSettings = {
-                repeatedLetter: '',
-                isRepeatedEffectOn: false
-            }
-        };
+        this.repeatedLetterEffectReset();
 
-        this.setState({isLastGuessOkay: false, ...additionalSettings})
+        this.setState({isLastGuessOkay: false, value:''})
     }
 
     onLetterExists(e){

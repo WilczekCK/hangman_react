@@ -37,11 +37,9 @@ class LetterInput extends React.Component{
     submitForm(e){
         e.preventDefault();
         if( this.wasLetterProvidedEarlier() && this.isLetterInWordToGuess ) {
-            const holdLetter = this.state.value;
-            this.props.onLetterExists( {...this.state, value: holdLetter} );
+            this.props.onLetterExists( {...this.state, value: this.state.value} );
             return false;
         } else if( !this.isLetterInWordToGuess()) {
-            this.setState({isLastGuessOkay: false, value:''});
             this.props.onWrongLetter();
             return false;
         }
