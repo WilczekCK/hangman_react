@@ -10,7 +10,8 @@ class LettersPanel extends React.Component{
         this.state = { wrongLetters: '', properLetters: '', repeatedLetter: '', isLastGuessOkay: null }
         this.onLetterChange = this.onLetterChange.bind(this);
         this.onLetterExists = this.onLetterExists.bind(this);
-
+        this.onWrongLetter = this.onWrongLetter.bind(this);
+        
         this.isRepeatedEffectOn = false;
     }
 
@@ -27,13 +28,26 @@ class LettersPanel extends React.Component{
         this.setState({
             wrongLetters: e.wrongLetters,
             properLetters: e.properLetters,
-            isLastGuessOkay:e.isLastGuessOkay,
+            isLastGuessOkay: e.isLastGuessOkay,
             ...additionalSettings
         })
     }
 
+    onWrongLetter(){
+        let additionalSettings;
+        if ( this.isRepeatedEffectOn ) { 
+            clearTimeout(this.isRepeatedEffectOn) 
+            additionalSettings = {
+                repeatedLetter: '',
+                isRepeatedEffectOn: false
+            }
+        };
+
+        this.setState({isLastGuessOkay: false, ...additionalSettings})
+    }
+
     onLetterExists(e){
-        this.setState({ repeatedLetter: e.value, isLastGuessOkay:e.isLastGuessOkay });
+        this.setState({ repeatedLetter: e.value, isLastGuessOkay:true });
         
         if( this.isRepeatedEffectOn !== false ) {
           clearTimeout(this.isRepeatedEffectOn);
@@ -64,6 +78,7 @@ class LettersPanel extends React.Component{
                 <LetterInput 
                     onLetterChange={this.onLetterChange}
                     onLetterExists={this.onLetterExists}
+                    onWrongLetter={this.onWrongLetter}
                     wordToGuess={this.props.wordToGuess.toLowerCase()} 
                 />
             </div>

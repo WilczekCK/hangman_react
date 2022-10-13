@@ -8,7 +8,6 @@ class LetterInput extends React.Component{
             attempts: 0,
             wordToGuess: props.wordToGuess.toLowerCase(),
             isLastGuessOkay: null,
-            lettersProvided: [],
             properLetters:   [],
             wrongLetters:    [],
         };
@@ -16,10 +15,15 @@ class LetterInput extends React.Component{
         this.submitForm = this.submitForm.bind(this);
         this.inputChange = this.inputChange.bind(this);
         this.assignLetterToArray = this.assignLetterToArray.bind(this);
+        this.isLetterInWordToGuess = this.isLetterInWordToGuess.bind(this);
+    }
+
+    isLetterInWordToGuess(){
+        return Array.from( this.state.wordToGuess.toLowerCase() ).includes(this.state.value)
     }
 
     assignLetterToArray(){
-        if( Array.from( this.state.wordToGuess.toLowerCase() ).includes(this.state.value) ){
+        if( this.isLetterInWordToGuess() ){
             this.setState({ properLetters: [...this.state.properLetters, this.state.value], isLastGuessOkay: true })            
         } else {
             this.setState({ wrongLetters: [...this.state.wrongLetters, this.state.value], isLastGuessOkay: false })
@@ -32,29 +36,33 @@ class LetterInput extends React.Component{
 
     submitForm(e){
         e.preventDefault();
-        if( !this.isLetterActualInArray(this.state.value) ) {
+        if( this.wasLetterProvidedEarlier() && this.isLetterInWordToGuess ) {
+            const holdLetter = this.state.value;
+            this.props.onLetterExists( {...this.state, value: holdLetter} );
+            return false;
+        } else if( !this.isLetterInWordToGuess()) {
+            this.setState({isLastGuessOkay: false, value:''});
+            this.props.onWrongLetter();
             return false;
         }
 
-        this.setState({
-            lettersProvided: [...this.state.lettersProvided, this.state.value],
-            value: ''
-        })
-
         this.assignLetterToArray();
+
+        this.setState({
+            properLetters: [...this.state.properLetters, this.state.value],
+            value: '',
+            isLastGuessOkay: true
+        })
         
         queueMicrotask(() => this.props.onLetterChange( this.state ));
     }
 
-    isLetterActualInArray( newLetter ){
-        if( this.state.lettersProvided.includes(newLetter) ) {
-
-            
-            this.setState({value: ''});
-            return false;
+    wasLetterProvidedEarlier(){
+        if( this.state.properLetters.includes(this.state.value)) {   
+            return true;
         }
 
-        return newLetter;
+        return false;
     }
 
     render(){
