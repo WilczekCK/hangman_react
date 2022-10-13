@@ -2,9 +2,9 @@ import React from 'react';
 
 class LetterTips extends React.Component{
     constructor(props){
-        super(props);
-
+        super();
     }
+    
     render(){
         const {isLastGuessOkay, repeatedLetter} = this.props;
 

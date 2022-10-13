@@ -8,10 +8,10 @@
 .letters__container form button {padding:10px 0px; margin:10px 0px; margin-bottom:5px; font-weight:600; border-radius:0px; box-shadow:unset; border-color:transparent; background:black; color:white; width: 250px;}
 .letters__container form input { width:245px; height:30px; text-align:center}
 
-.letters__container--letters { display:flex; flex-direction:row; justify-content: center; padding:20px;}
+.letters__container--letters { display:flex; flex-direction:row; justify-content: center; padding:20px; height:22.5px;}
 .letters__container--letters span{ border-bottom:2px solid black; width:25px; margin-left:5px;}
 .letters__container--letters span:first-of-type{ text-transform: uppercase; }
 .letters__container--letters span.letters__container--letters--blank{ border-bottom:unset; }
 
-@keyframes bounce { 0% { transform: translateY(0); } 100% { transform: translateY(-10px); font-size:1.2em; } }
+@keyframes bounce { 0% { transform: translateY(0);} 100% { transform: translateY(-20px); font-size:1.2em; } }
 .letters__container--letters .letters__container--letters--repeated { animation: bounce 0.5s infinite alternate; } 
