@@ -36,12 +36,12 @@ class LetterInput extends React.Component{
 
     submitForm(e){
         e.preventDefault();
-        // Repeat or wrong letter
-        if( this.wasLetterProvidedEarlier() && this.isLetterInWordToGuess() ) {
+        if(this.state.value === ' ') return this.setState({value: ''}); //prevent spaces!
+
+        if( this.wasLetterProvidedEarlier() && this.isLetterInWordToGuess() ) { //repeated letter
             this.props.onLetterExists( this.state );
             this.setState({value: ''});
-            return false;
-        } else if( !this.isLetterInWordToGuess()) {
+        } else if( !this.isLetterInWordToGuess()) { //wrong letter
             this.props.onWrongLetter();
 
             if ( !this.wasLetterProvidedEarlier() ) {
@@ -49,17 +49,16 @@ class LetterInput extends React.Component{
             } else {
                 this.setState({value: '',  isLastGuessOkay: false});
             }
+        } else { //all k
+            this.setState({
+                properLetters: [...this.state.properLetters, this.state.value],
+                value: '',
+                isLastGuessOkay: true
+            })
             
-            return false;
+            queueMicrotask(() => this.props.onLetterChange( this.state ));
         }
 
-        this.setState({
-            properLetters: [...this.state.properLetters, this.state.value],
-            value: '',
-            isLastGuessOkay: true
-        })
-        
-        queueMicrotask(() => this.props.onLetterChange( this.state ));
     }
 
     wasLetterProvidedEarlier(){
