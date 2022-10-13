@@ -36,7 +36,6 @@ class LetterInput extends React.Component{
 
     submitForm(e){
         e.preventDefault();
-        
         // Repeat or wrong letter
         if( this.wasLetterProvidedEarlier() && this.isLetterInWordToGuess() ) {
             this.props.onLetterExists( this.state );
@@ -44,11 +43,15 @@ class LetterInput extends React.Component{
             return false;
         } else if( !this.isLetterInWordToGuess()) {
             this.props.onWrongLetter();
-            this.setState({value: ''});
+
+            if ( !this.wasLetterProvidedEarlier() ) {
+                this.setState({value: '', isLastGuessOkay: false, wrongLetters: [...this.state.wrongLetters, this.state.value]});
+            } else {
+                this.setState({value: '',  isLastGuessOkay: false});
+            }
+            
             return false;
         }
-
-        this.assignLetterToArray();
 
         this.setState({
             properLetters: [...this.state.properLetters, this.state.value],
@@ -60,7 +63,7 @@ class LetterInput extends React.Component{
     }
 
     wasLetterProvidedEarlier(){
-        if( this.state.properLetters.includes(this.state.value)) {   
+        if( this.state.properLetters.includes(this.state.value) || this.state.wrongLetters.includes(this.state.value) ) {  
             return true;
         }
 
