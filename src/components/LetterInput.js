@@ -36,7 +36,11 @@ class LetterInput extends React.Component{
 
     submitForm(e){
         e.preventDefault();
-        if(this.state.value === ' ') return this.setState({value: ''}); //prevent spaces!
+        //prevent spaces and empty values!
+        if(this.state.value === ' ' || this.state.value === '') {
+            this.setState({value:''});
+            return false;
+        };
 
         if( this.wasLetterProvidedEarlier() && this.isLetterInWordToGuess() ) { //repeated letter
             this.props.onLetterExists( this.state );
