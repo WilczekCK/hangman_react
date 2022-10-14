@@ -11,28 +11,34 @@ class Hangman extends React.Component{
         return (
             <table>
                 <tr>
-                    <td></td>
-                    <td class="hangman__line--horizontal"></td>
+                    <td class="hangman__line__vertical__right"></td>
+                    <td class="hangman__line__horizontal__top"></td>
                     <td class="hangman__line--head"></td>
-                    <td></td>
+                    <td class="hangman__line__transparent"></td>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td class="hangman__line__vertical__right"></td>
+                    <td class="hangman__line__transparent"></td>
                     <td class="hangman--head"></td>
-                    <td></td>
+                    <td class="hangman__line__transparent"></td>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td class="hangman__line__vertical__right"></td>
+                    <td class="hangman__line__transparent"></td>
+                    <td class="hangman--body--top"></td>
+                    <td class="hangman__line__transparent"></td>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td class="hangman__line__vertical__right"></td>
+                    <td class="hangman__line__transparent"></td>
+                    <td class="hangman--body--bottom"></td>
+                    <td class="hangman__line__transparent"></td>
+                </tr>
+                <tr>
+                    <td class=""></td>
+                    <td class=""></td>
+                    <td class="hangman__line__transparent"></td>
+                    <td class="hangman__line__transparent"></td>
                 </tr>
             </table>
         )
