@@ -1,7 +1,9 @@
 import React from 'react';
 import LettersDisplay from '../components/LettersDisplay';
 import LetterInput from '../components/LetterInput';
-import LetterTips from '../components/LetterTips';
+import LetterTips  from '../components/LetterTips';
+import Hangman  from '../components/Hangman';
+
 
 class LettersPanel extends React.Component{
     constructor(props){
@@ -58,6 +60,8 @@ class LettersPanel extends React.Component{
     render(){
         return (
             <div className="letters__container">
+                <Hangman />
+                
                 <LettersDisplay 
                     properLetters={this.state.properLetters} 
                     wrongLetters={this.state.wrongLetters}
