@@ -15,3 +15,15 @@
 
 @keyframes bounce { 0% { transform: translateY(0);} 100% { transform: translateY(-20px); font-size:1.2em; } }
 .letters__container--letters .letters__container--letters--repeated { animation: bounce 0.5s infinite alternate; } 
+
+
+
+table{ margin:0 auto; min-width:250px}
+table tr{ margin:0; padding:0; display:block; }
+table tr td{ width:50px; height:50px; border:2px solid black; padding:0; margin:0; display:inline-block;}
+
+td.hangman__line--head{border-color:transparent; position:relative;}
+td.hangman__line--head::after{ content:''; background-color: black; position:absolute; top:-2px; left:50%; height:54px; width:2px; display:block; transform:translateX(-50%)}
+td.hangman__line--head::before{ content:''; background-color: black; position:absolute; top:-2px; left:-2px; height:2px; width:27px; display:block;}
+
+td.hangman--head{ border-radius:50%; }
