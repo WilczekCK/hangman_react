@@ -7,7 +7,8 @@ import React from 'react';
 class App extends React.Component{
   constructor(){
     super();
-    this.state = {healthAmount: 10, maxMistakes: 10};
+    const maxAttempts = 7;
+    this.state = {healthAmount: maxAttempts, maxMistakes: maxAttempts};
     this.dropHealth = this.dropHealth.bind(this);
   }
   
