@@ -1,7 +1,8 @@
 import React from 'react';
 import LettersDisplay from '../components/LettersDisplay';
 import LetterInput from '../components/LetterInput';
-import LetterTips from '../components/LetterTips';
+import LetterTips  from '../components/LetterTips';
+
 
 class LettersPanel extends React.Component{
     constructor(props){
@@ -37,6 +38,7 @@ class LettersPanel extends React.Component{
 
     onWrongLetter(){
         this.repeatedLetterEffectReset();
+        this.props.onWrongLetter();
 
         this.setState({isLastGuessOkay: false})
     }
@@ -62,7 +64,7 @@ class LettersPanel extends React.Component{
                     properLetters={this.state.properLetters} 
                     wrongLetters={this.state.wrongLetters}
                     repeatedLetter={this.state.repeatedLetter}
-                    wordToGuess='Kolorowe Korale Królowej Karoliny'
+                    wordToGuess={this.props.wordToGuess}
                 />
                 
                 <LetterTips
