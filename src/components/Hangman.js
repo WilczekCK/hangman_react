@@ -2,20 +2,12 @@ import React from 'react';
 
 class Hangman extends React.Component{
     constructor(props){
-        super(props);   
-
-        this.state = { stage: 0, healthAmount: this.props.healthLeft};
-        this.nextStage = this.nextStage.bind(this);
+        super(props);
     }
 
-    nextStage(){
-        this.setState((state, props) => ({
-            stage: state.stage + 1
-        }));
-    }
 
     createHealths(){
-        if( this.state.stage === 10 ) {
+        if( this.props.health === 0 ) {
             return <p>You lose, the answer was: XYZ</p>
         } else {
             let healthAmount = Array(this.props.healthLeft).fill(0);
@@ -38,32 +30,32 @@ class Hangman extends React.Component{
                 <thead></thead>
                 <tbody>
                     <tr>
-                        <td className={(this.state.stage > 4 ? 'hangman__line__vertical__right' : '')}></td>
-                        <td className={(this.state.stage > 5 ? 'hangman__line__horizontal__top' : '')}></td>
-                        <td className={(this.state.stage > 6 ? 'hangman__line--head' : '')}></td>
+                        <td className={(this.props.healthLeft < 6 ? 'hangman__line__vertical__right' : '')}></td>
+                        <td className={(this.props.healthLeft < 5 ? 'hangman__line__horizontal__top' : '')}></td>
+                        <td className={(this.props.healthLeft < 4 ? 'hangman__line--head' : '')}></td>
                         <td className="hangman__line__transparent"></td>
                     </tr>
                     <tr>
-                        <td className={(this.state.stage > 3 ? 'hangman__line__vertical__right' : '')}></td>
+                        <td className={(this.props.healthLeft < 7 ? 'hangman__line__vertical__right' : '')}></td>
                         <td className="hangman__line__transparent"></td>
-                        <td className={(this.state.stage > 7 ? 'hangman--head' : '')}></td>
-                        <td className="hangman__line__transparent"></td>
-                    </tr>
-                    <tr>
-                        <td className={(this.state.stage > 2 ? 'hangman__line__vertical__right' : '')}></td>
-                        <td className="hangman__line__transparent"></td>
-                        <td className={(this.state.stage > 8 ? 'hangman--body--top' : '')}></td>
+                        <td className={(this.props.healthLeft < 3 ? 'hangman--head' : '')}></td>
                         <td className="hangman__line__transparent"></td>
                     </tr>
                     <tr>
-                        <td className={(this.state.stage > 1 ? 'hangman__line__vertical__right' : '')}></td>
+                        <td className={(this.props.healthLeft < 8 ? 'hangman__line__vertical__right' : '')}></td>
                         <td className="hangman__line__transparent"></td>
-                        <td className={(this.state.stage > 9 ? 'hangman--body--bottom' : '')}></td>
+                        <td className={(this.props.healthLeft < 2 ? 'hangman--body--top' : '')}></td>
                         <td className="hangman__line__transparent"></td>
                     </tr>
                     <tr>
-                        <td className={(this.state.stage > 0 ? 'hangman__box' : '')}></td>
-                        <td className={(this.state.stage > 0 ? 'hangman__box' : '')}></td>
+                        <td className={(this.props.healthLeft < 9 ? 'hangman__line__vertical__right' : '')}></td>
+                        <td className="hangman__line__transparent"></td>
+                        <td className={(this.props.healthLeft < 1 ? 'hangman--body--bottom' : '')}></td>
+                        <td className="hangman__line__transparent"></td>
+                    </tr>
+                    <tr>
+                        <td className={(this.props.healthLeft < 10 ? 'hangman__box' : '')}></td>
+                        <td className={(this.props.healthLeft < 10 ? 'hangman__box' : '')}></td>
                         <td className="hangman__line__transparent"></td>
                         <td className="hangman__line__transparent"></td>
                     </tr>
@@ -75,7 +67,6 @@ class Hangman extends React.Component{
     render(){
         return (
             <div className="hangman__container">
-                <button onClick={this.nextStage}> go for next stage </button>
                 { this.createTable() }
                 { this.createHealths() }
             </div>

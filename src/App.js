@@ -7,8 +7,7 @@ import React from 'react';
 class App extends React.Component{
   constructor(){
     super();
-
-    this.state = {healthAmount: 10};
+    this.state = {healthAmount: 10, maxMistakes: 10};
     this.dropHealth = this.dropHealth.bind(this);
   }
   
@@ -21,7 +20,7 @@ class App extends React.Component{
   render(){
     return (
       <div className="App">
-        <Hangman healthLeft={this.state.healthAmount}/>
+        <Hangman healthLeft={this.state.healthAmount} maxMistakes={this.state.maxMistakes}/>
         <LettersPanel onWrongLetter={this.dropHealth} wordToGuess='Kolorowe Korale Królowej Karoliny'/>
       </div>
     );
