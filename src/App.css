@@ -17,22 +17,25 @@
 .letters__container--letters .letters__container--letters--repeated { animation: bounce 0.5s infinite alternate; } 
 
 
-
 table{ margin:0 auto; min-width:250px}
 table tr{ margin:0; padding:0; display:block; }
-table tr td{ width:50px; height:50px; border:2px solid black; padding:0; margin:0; display:inline-block;}
+table tr td{ width:50px; height:50px; padding:0; margin:0; display:inline-block; box-sizing:border-box}
 
-td.hangman__line--head{border-color:transparent; position:relative;}
-td.hangman__line--head::after{ content:''; background-color: black; position:absolute; top:-2px; left:50%; height:54px; width:2px; display:block; transform:translateX(-50%)}
-td.hangman__line--head::before{ content:''; background-color: black; position:absolute; top:-2px; left:-4px; height:2px; width:28px; display:block;}
+td.hangman__line--head{border-color:transparent; position:relative; }
+td.hangman__line--head::after{ content:''; background-color: black; position:absolute; top:0px; left:50%; height:54px; width:2px; display:block; transform:translateX(-50%)}
+td.hangman__line--head::before{ content:''; background-color: black; position:absolute; top:0px; left:-4px; height:2px; width:28px; display:block;}
 
-td.hangman--head{ border-radius:50%; background:white; z-index:1; position:relative;}
-td.hangman--body--top{ transform:rotate(45deg); border-bottom:transparent; border-right:transparent }
+td.hangman--head{ border-radius:50%; background:white; z-index:1; position:relative; border:2px solid black;}
+
+td.hangman--body--top{ transform:rotate(45deg); border:2px solid black; border-bottom:transparent; border-right:transparent; }
 
 td.hangman--body--bottom::after{ transform:rotate(-45deg); content:''; background-color: black; position:absolute; top: -85px; left: -36px;height: 101px; width:2px; display:block;}
-td.hangman--body--bottom{ transform:rotate(45deg); border-bottom:transparent; border-right:transparent }
+td.hangman--body--bottom{ border:2px solid black; transform:rotate(45deg); border-bottom:transparent; border-right:transparent }
 
 td.hangman__line__horizontal__top{border-color:transparent; border-top:2px black solid;}
-td.hangman__line__vertical__right{border-color:transparent; border-right:2px black solid;}
+
+td.hangman__line__vertical__right{border-color:transparent; border-right:2px black solid; position:relative;}
 
 td.hangman__line__transparent{border-color:transparent;}
+
+td.hangman__box{ border:2px solid black; background:black }

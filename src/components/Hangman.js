@@ -35,8 +35,8 @@ class Hangman extends React.Component{
                     <td class="hangman__line__transparent"></td>
                 </tr>
                 <tr>
-                    <td class=""></td>
-                    <td class=""></td>
+                    <td class="hangman__box"></td>
+                    <td class="hangman__box"></td>
                     <td class="hangman__line__transparent"></td>
                     <td class="hangman__line__transparent"></td>
                 </tr>
