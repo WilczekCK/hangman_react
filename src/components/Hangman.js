@@ -18,15 +18,17 @@ class Hangman extends React.Component{
         if( this.state.stage === 10 ) {
             return <p>You lose, the answer was: XYZ</p>
         } else {
-            let amountOfHealth = 10 - this.state.stage;
-            let x = 0;
-            let htmlText = 'Healths left: ';
+            let healthAmount = Array(10 - this.state.stage).fill(0);
+            const healthArray = healthAmount.map((health, index) => 
+                <span key={index}> &#9829; </span>
+            );
 
-            for(x; x<amountOfHealth; x++){
-                htmlText += 'x';
-            }
-
-            return <div className="hangman__container">{htmlText}</div>;
+            return (
+                <div className="hangman__container__counter">
+                    Healths left: 
+                    <div className="hangman__container__counter--healths">{healthArray}</div>
+                </div>
+            );
         }
     }
 

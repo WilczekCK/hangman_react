@@ -16,6 +16,7 @@
 @keyframes bounce { 0% { transform: translateY(0);} 100% { transform: translateY(-20px); font-size:1.2em; } }
 .letters__container--letters .letters__container--letters--repeated { animation: bounce 0.5s infinite alternate; } 
 
+/* Hangman */
 
 table{ margin:0 auto; min-width:250px}
 table tr{ margin:0; padding:0; display:block; }
@@ -39,3 +40,10 @@ td.hangman__line__vertical__right{border-color:transparent; border-right:2px bla
 td.hangman__line__transparent{border-color:transparent;}
 
 td.hangman__box{ border:2px solid black; background:black }
+
+/* Healths Counter */
+.hangman__container__counter{ display:flex; flex-direction: column; justify-content: center; }
+.hangman__container__counter--healths {
+  color:red;
+  font-size:24px;
+}
