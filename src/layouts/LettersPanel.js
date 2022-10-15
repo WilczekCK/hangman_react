@@ -64,7 +64,7 @@ class LettersPanel extends React.Component{
                     properLetters={this.state.properLetters} 
                     wrongLetters={this.state.wrongLetters}
                     repeatedLetter={this.state.repeatedLetter}
-                    wordToGuess='Kolorowe Korale Królowej Karoliny'
+                    wordToGuess={this.props.wordToGuess}
                 />
                 
                 <LetterTips

@@ -21,7 +21,7 @@ class App extends React.Component{
     return (
       <div className="App">
         <Hangman healthLeft={this.state.healthAmount} maxMistakes={this.state.maxMistakes}/>
-        <LettersPanel onWrongLetter={this.dropHealth} wordToGuess='Kolorowe Korale Królowej Karoliny'/>
+        <LettersPanel onWrongLetter={this.dropHealth} wordToGuess='Gumy Orbit'/>
       </div>
     );
   }
