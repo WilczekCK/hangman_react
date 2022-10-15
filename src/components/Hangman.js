@@ -5,7 +5,6 @@ class Hangman extends React.Component{
         super();   
 
         this.state = { stage: 0 };
-        this.createTable = this.createTable.bind(this);
         this.nextStage = this.nextStage.bind(this);
     }
 
@@ -15,7 +14,21 @@ class Hangman extends React.Component{
         }));
     }
 
+    createAttemptsCounter(){
+        if( this.state.stage === 10 ) {
+            return <p>You lose, the answer was: XYZ</p>
+        } else {
+            let amountOfHealth = 10 - this.state.stage;
+            let x = 0;
+            let htmlText = 'Healths left: ';
 
+            for(x; x<amountOfHealth; x++){
+                htmlText += 'x';
+            }
+
+            return <div className="hangman__container">{htmlText}</div>;
+        }
+    }
 
     createTable(){
         return (
@@ -61,7 +74,8 @@ class Hangman extends React.Component{
         return (
             <div className="hangman__container">
                 <button onClick={this.nextStage}> go for next stage </button>
-                {this.createTable() }
+                { this.createAttemptsCounter() }
+                { this.createTable() }
             </div>
         )
 
