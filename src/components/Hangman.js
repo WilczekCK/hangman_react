@@ -2,9 +2,17 @@ import React from 'react';
 
 class Hangman extends React.Component{
     constructor(props){
-        super();
+        super();   
 
+        this.state = { stage: 0 };
         this.createTable = this.createTable.bind(this);
+        this.nextStage = this.nextStage.bind(this);
+    }
+
+    nextStage(){
+        this.setState((state, props) => ({
+            stage: state.stage + 1
+        }));
     }
 
     createTable(){
@@ -45,7 +53,13 @@ class Hangman extends React.Component{
     }
 
     render(){
-        return this.createTable();
+        return (
+            <div>
+                <button onClick={this.nextStage}> go for next stage </button>
+                {this.createTable() };
+            </div>
+        )
+
     }
 }
 
