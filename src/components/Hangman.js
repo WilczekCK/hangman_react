@@ -14,7 +14,7 @@ class Hangman extends React.Component{
         }));
     }
 
-    createAttemptsCounter(){
+    createHealths(){
         if( this.state.stage === 10 ) {
             return <p>You lose, the answer was: XYZ</p>
         } else {
@@ -77,7 +77,7 @@ class Hangman extends React.Component{
             <div className="hangman__container">
                 <button onClick={this.nextStage}> go for next stage </button>
                 { this.createTable() }
-                { this.createAttemptsCounter() }
+                { this.createHealths() }
             </div>
         )
 
