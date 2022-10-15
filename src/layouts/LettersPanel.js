@@ -38,6 +38,7 @@ class LettersPanel extends React.Component{
 
     onWrongLetter(){
         this.repeatedLetterEffectReset();
+        this.props.onWrongLetter();
 
         this.setState({isLastGuessOkay: false})
     }

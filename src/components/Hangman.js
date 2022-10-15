@@ -2,9 +2,9 @@ import React from 'react';
 
 class Hangman extends React.Component{
     constructor(props){
-        super();   
+        super(props);   
 
-        this.state = { stage: 0 };
+        this.state = { stage: 0, healthAmount: this.props.healthLeft};
         this.nextStage = this.nextStage.bind(this);
     }
 
@@ -18,7 +18,7 @@ class Hangman extends React.Component{
         if( this.state.stage === 10 ) {
             return <p>You lose, the answer was: XYZ</p>
         } else {
-            let healthAmount = Array(10 - this.state.stage).fill(0);
+            let healthAmount = Array(this.props.healthLeft).fill(0);
             const healthArray = healthAmount.map((health, index) => 
                 <span key={index}> &#9829; </span>
             );
