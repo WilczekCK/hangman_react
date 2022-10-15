@@ -76,8 +76,8 @@ class Hangman extends React.Component{
         return (
             <div className="hangman__container">
                 <button onClick={this.nextStage}> go for next stage </button>
-                { this.createAttemptsCounter() }
                 { this.createTable() }
+                { this.createAttemptsCounter() }
             </div>
         )
 

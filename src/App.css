@@ -2,7 +2,7 @@
   text-align: center;
 }
 
-.letters__container { padding:40px 0px; }
+.letters__container { padding:10px 0px 40px; }
 
 .letters__container form { display: flex; flex-direction: column; align-items: center; margin-top:20px; color:grey;}
 .letters__container form button {padding:10px 0px; margin:10px 0px; margin-bottom:5px; font-weight:600; border-radius:0px; box-shadow:unset; border-color:transparent; background:black; color:white; width: 250px;}
@@ -18,7 +18,7 @@
 
 /* Hangman */
 
-table{ margin:0 auto; min-width:250px}
+table{ margin:0 auto; min-width:250px; border:10px solid black; padding:20px; margin-bottom:30px; margin-top:20px;}
 table tr{ margin:0; padding:0; display:block; }
 table tr td{ width:50px; height:50px; padding:0; margin:0; display:inline-block; box-sizing:border-box;}
 
@@ -43,7 +43,4 @@ td.hangman__box{ border:2px solid black; background:black }
 
 /* Healths Counter */
 .hangman__container__counter{ display:flex; flex-direction: column; justify-content: center; }
-.hangman__container__counter--healths {
-  color:red;
-  font-size:24px;
-}
+.hangman__container__counter--healths {color:red; font-size:24px; }
