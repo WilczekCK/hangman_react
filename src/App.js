@@ -7,7 +7,7 @@ import React from 'react';
 class App extends React.Component{
   constructor(){
     super();
-    const maxAttempts = 7;
+    const maxAttempts = 5;
     this.state = {healthAmount: maxAttempts, maxMistakes: maxAttempts};
     this.dropHealth = this.dropHealth.bind(this);
   }
@@ -22,7 +22,7 @@ class App extends React.Component{
     return (
       <div className="App">
         <Hangman healthLeft={this.state.healthAmount} maxMistakes={this.state.maxMistakes}/>
-        <LettersPanel onWrongLetter={this.dropHealth} wordToGuess='Gumy Orbit'/>
+        <LettersPanel onWrongLetter={this.dropHealth} wordToGuess='Madagaskar'/>
       </div>
     );
   }
