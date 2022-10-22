@@ -14,7 +14,7 @@
 
 /* Hangman */
 
-table{ margin:0 auto; min-width:250px; border:10px solid black; padding:20px; margin-bottom:30px; margin-top:20px;}
+table{ margin:0 auto; min-width:250px; border:10px solid black; padding:20px; }
 table tr{ margin:0; padding:0; display:block; }
 table tr td{ width:50px; height:50px; padding:0; margin:0; display:inline-block; box-sizing:border-box;}
 
@@ -91,8 +91,8 @@ h2, label, input { color: rgba(12, 14, 90, 0.949); }
 .word_select .page__container--right input{  border-width: 3px; border-style: solid; border-color: rgba(12, 14, 90, 0.949); padding: 10px; }
 
 /* GAME */
-.game h2{ font-size:2em; margin-bottom:50px; }
-.page__container__points{ margin-top:0px; display:flex; flex-direction: column; width:400px; }
+.game h2{ font-size:2em; }
+.page__container__points{ display:flex; flex-direction: column; width:400px; }
 
 .page__container__points ul{ display:flex; justify-content:space-around; list-style-type: none; text-align:center; padding:0px; margin:0px;}
 .page__container__points ul li{border:2px solid black}
