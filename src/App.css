@@ -1,6 +1,6 @@
-.App {
-  text-align: center;
-}
+.App { text-align: center; }
+.App > div { display: none }
+.App > .visible { display: unset }
 
 .letters__container { padding:10px 0px 40px; }
 
