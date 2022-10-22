@@ -90,6 +90,25 @@ h2, label, input { color: rgba(12, 14, 90, 0.949); }
 .word_select .page__container--right h3{ font-size:1em; font-family:Rubik; text-align:center }
 .word_select .page__container--right input{  border-width: 3px; border-style: solid; border-color: rgba(12, 14, 90, 0.949); padding: 10px; }
 
+/* GAME */
+.page__container__points{ display:flex; flex-direction: column; width:315px; }
+.page__container__points ul{ display:flex; justify-content:space-around; list-style-type: none; text-align:center; padding:0px; margin:0px;}
+.page__container__points li:first-of-type{ }
+
+.page__container__points .page__container__points__heading ul{ border-bottom:2px solid #424550; }
+.page__container__points .page__container__points__heading ul li:first-of-type{ border-right:2px solid #424550; }
+
+.page__container__points .page__container__points__players{ position: relative; display:flex; flex-direction: row; justify-content: space-around;}
+.page__container__points .page__container__points__players > div { width:50%; }
+.page__container__points .page__container__points__players ul > li { width:100% !important; }
+.page__container__points .page__container__points__players ul{ display:flex; flex-direction: column; text-align:center;}
+.page__container__points .page__container__points__players .page__container__points__players--a{border-right:2px solid black;}
+.page__container__points__players::after{ content:''; background:black; position:absolute; left:50%; bottom:-35px; transform:translateX(-50%); display:block; width:2px; height:35px; }
+
+.page__container__points .page__container__points__players ul li,
+.page__container__points .page__container__points__heading ul li{width:50%;border-bottom:2px solid black; padding:10px 0px;}
+
+
 /* TODO
 @keyframes anim{
   from {transform:rotateY(-200deg)}
