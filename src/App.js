@@ -10,7 +10,7 @@ import React from 'react';
 class App extends React.Component{
   constructor(){
     super();
-    this.state = {healthAmount: 10, maxMistakes: 10, actualScreen: 'start', previousScreen: 'start'};
+    this.state = {healthAmount: 10, maxMistakes: 10, actualScreen: 'start', previousScreen: 'start', wordToGuess: ''};
     this.dropHealth = this.dropHealth.bind(this);
     this.changeScreen = this.changeScreen.bind(this);
   }
@@ -38,6 +38,15 @@ class App extends React.Component{
       })
     }
 
+    // only at select password screen
+    if ( this.state.actualScreen === 'word_select' ){
+      const wordToGuess =  e.target.attributes['data-wordtoguess'] ? e.target.attributes['data-wordtoguess'].value : 'Madagascar';
+
+      this.setState({
+        wordToGuess: wordToGuess
+      })
+    }
+
     // after every screen change
     this.setState((state, props) => ({
       previousScreen: state.actualScreen,
@@ -58,7 +67,7 @@ class App extends React.Component{
           healthLeft={this.state.healthAmount} 
           maxMistakes={this.state.maxMistakes} 
           onWrongLetter={this.dropHealth} 
-          wordToGuess='Madagaskar'
+          wordToGuess={this.state.wordToGuess}
         />
 
         <WordselectPage 
