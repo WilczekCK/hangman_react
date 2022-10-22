@@ -14,7 +14,8 @@ class Hangman extends React.Component{
         } else {
             let healthAmount = Array(parseInt(this.props.healthLeft)).fill(0);
             const healthArray = healthAmount.map((health, index) => 
-                <span key={index}> &#9829; </span>
+                <span key={index}> </span>
+                //&#9829; 
             );
 
             return (
@@ -74,8 +75,8 @@ class Hangman extends React.Component{
     render(){
         return (
             <div className="hangman__container">
-                { this.createTable() }
                 { this.createHealths() }
+                { this.createTable() }
             </div>
         )
 
