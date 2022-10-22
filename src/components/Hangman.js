@@ -13,14 +13,16 @@ class Hangman extends React.Component{
             return <p>You lose, the answer was: XYZ</p>
         } else {
             let healthAmount = Array(parseInt(this.props.healthLeft)).fill(0);
-            const healthArray = healthAmount.map((health, index) => 
-                <span key={index}> </span>
+            let wholeHealth = Array(parseInt(this.props.maxMistakes)).fill(0);
+
+            const healthArray = wholeHealth.map(function (health, index){
+                console.log(index, healthAmount);
+                return <span key={index} className={index >= healthAmount.length ? 'health__lost' : '' }> </span>
                 //&#9829; 
-            );
+            })
 
             return (
                 <div className="hangman__container__counter">
-                    Healths left: 
                     <div className="hangman__container__counter--healths">{healthArray}</div>
                 </div>
             );

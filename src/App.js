@@ -10,7 +10,7 @@ import React from 'react';
 class App extends React.Component{
   constructor(){
     super();
-    this.state = {healthAmount: 10, maxMistakes: 10, actualScreen: 'start', previousScreen: 'start', wordToGuess: ''};
+    this.state = {healthAmount: 10, maxMistakes: 10, actualScreen: 'game', previousScreen: 'start', wordToGuess: ''};
     this.dropHealth = this.dropHealth.bind(this);
     this.changeScreen = this.changeScreen.bind(this);
   }
