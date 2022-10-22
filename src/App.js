@@ -25,7 +25,7 @@ class App extends React.Component{
 
   render(){
     return (
-      <div className="App">
+      <div className={ this.state.actualScreen === 'start' ? 'App single' : 'App' }>
         <HomePage classList={ this.state.actualScreen === 'start' ? 'start visible' : 'start' }/>
 
         <div className={ this.state.actualScreen === 'game' ? 'game visible' : 'game' }>

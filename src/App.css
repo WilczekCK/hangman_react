@@ -43,15 +43,17 @@ td.hangman__box{ border:2px solid black; background:black }
 
 
 /* GLOBALS */
-html{ background: #ebaa8d; display:flex; justify-content: center; height:100%; }
-body{ width:1160px; height:600px; border:5px solid black; align-self:center}
-#root{height:100%;}
-.App { text-align: center; height:100%;}
-.App > div { display: none; height:100%; }
+html{ background: #ebaa8d; height:100%;}
+body{height:100%}
+#root{height:100%; display:flex; justify-content: center; align-items:center}
+
+.App > div { display: none;  height:600px; }
 .App > .visible { display: flex; }
 
-.page__container{width:50%; height:100%; background:whitesmoke;}
+.page__container{width:560px; height:100%; background:whitesmoke;}
 .page__container--left{ border-right: 1px solid black; }
 .page__container--right{ border-left: 1px solid black; }
 
 /* HOMEPAGE */
+.start .page__container--left{ background:transparent; border:unset; }
+.start .page__container--right{ border:unset; }
