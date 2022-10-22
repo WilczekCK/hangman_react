@@ -10,7 +10,7 @@ class Hangman extends React.Component{
 
     createHealths(){
         console.log(this.percentageHealthLeft());
-        if( this.props.health === 0 ) {
+        if( this.props.healthLeft === 0 ) {
             return <p>You lose, the answer was: XYZ</p>
         } else {
             let healthAmount = Array(this.props.healthLeft).fill(0);
