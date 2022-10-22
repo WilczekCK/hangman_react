@@ -12,7 +12,7 @@ class Hangman extends React.Component{
         if( this.props.healthLeft === 0 ) {
             return <p>You lose, the answer was: XYZ</p>
         } else {
-            let healthAmount = Array(this.props.healthLeft).fill(0);
+            let healthAmount = Array(parseInt(this.props.healthLeft)).fill(0);
             const healthArray = healthAmount.map((health, index) => 
                 <span key={index}> &#9829; </span>
             );
