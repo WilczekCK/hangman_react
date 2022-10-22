@@ -88,6 +88,7 @@ h2, label, input { color: rgba(12, 14, 90, 0.949); }
 .word_select .page__container--left[data-firstpage=true] { background:#424550; background-image:url(./assets/img/wordguess_book_cover.jpg); background-position: right top; }
 .word_select .page__container--right h2{ font-size:2.5em; margin-top:12.5%; }
 .word_select .page__container--right h3{ font-size:1em; font-family:Rubik; text-align:center }
+.word_select .page__container--right input{  border-width: 3px; border-style: solid; border-color: rgba(12, 14, 90, 0.949); padding: 10px; }
 
 /* TODO
 @keyframes anim{
