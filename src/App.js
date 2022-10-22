@@ -11,6 +11,7 @@ class App extends React.Component{
     const maxAttempts = 5;
     this.state = {healthAmount: maxAttempts, maxMistakes: maxAttempts, actualScreen: 'start'};
     this.dropHealth = this.dropHealth.bind(this);
+    this.changeScreen = this.changeScreen.bind(this);
   }
   
   dropHealth(e){
@@ -23,10 +24,14 @@ class App extends React.Component{
     } 
   }
 
+  changeScreen(e){
+    this.setState({ actualScreen: e.target.attributes['data-goto'].value });
+  }
+
   render(){
     return (
       <div className={ this.state.actualScreen === 'start' ? 'App single' : 'App' }>
-        <HomePage classList={ this.state.actualScreen === 'start' ? 'start visible' : 'start' }/>
+        <HomePage changeScreen={this.changeScreen} classList={ this.state.actualScreen === 'start' ? 'start visible' : 'start' }/>
 
         <div className={ this.state.actualScreen === 'game' ? 'game visible' : 'game' }>
           <Hangman healthLeft={this.state.healthAmount} maxMistakes={this.state.maxMistakes}/>
