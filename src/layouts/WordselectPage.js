@@ -4,7 +4,7 @@ class WordselectPage extends React.Component{
     constructor(props){
         super(props);
 
-        this.state = { wordToGuess: '', isWordProvided: false }
+        this.state = { wordToGuess: '', isWordProvided: false, wordTip:'' }
         this.handleInputChange = this.handleInputChange.bind(this);
     }
 
@@ -12,11 +12,13 @@ class WordselectPage extends React.Component{
         const wordProvided = e.target.value;
 
         if( wordProvided.length > 25 ) {
-            // tooo long word to guess....
+            this.setState({ wordTip: 'The letters limit has been crossed' })
         } else {
             if ( wordProvided.length <= 5 ) {
+                this.setState({ wordTip: 'The word to guess must have minimum 5 letters' })
                 this.setState({ isWordProvided: false })
             } else {
+                this.setState({ wordTip: 'All okay, you can start the game' })
                 this.setState({ isWordProvided: true })
             }
 
@@ -34,7 +36,9 @@ class WordselectPage extends React.Component{
                         <input type="text" name="maxMistakes" onChange={this.handleInputChange} value={this.state.wordToGuess} placeholder="Madagascar"/>
                     </form>
 
-                    <div className="page__container__triangle" disabled={!this.state.isWordProvided}  data-goto="game" data-wordtoguess={this.state.wordToGuess} onClick={ this.props.changeScreen }>PLAY</div>
+                    <h3>{this.state.wordTip}</h3>
+
+                    <div className={this.state.isWordProvided ? "page__container__triangle" : "page__container__triangle disabled"}  data-goto="game" data-wordtoguess={this.state.wordToGuess} onClick={ this.props.changeScreen }>PLAY</div>
                 </div>
             </div>
         );

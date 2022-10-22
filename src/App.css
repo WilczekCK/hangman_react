@@ -48,10 +48,17 @@ td.hangman__box{ border:2px solid black; background:black }
   src: url(./assets/fonts/Parisienne.ttf);
 }
 
+@font-face {
+  font-family: 'Rubik';
+  src: url(./assets/fonts/Rubik.ttf);
+}
+
 html{background-image:url(./assets/img/bg.jpg); height:100%; background-size:cover;}
 body{height:100%}
 #root{height:100%; display:flex; justify-content: center; align-items:center}
+*{ color: rgba(12, 14, 90, 0.949); }
 h2, label, input { color: rgba(12, 14, 90, 0.949); }
+
 
 .App > div { display: none;  height:600px; }
 .App > .visible { display: flex; }
@@ -60,8 +67,8 @@ h2, label, input { color: rgba(12, 14, 90, 0.949); }
 .page__container--left{ border-right: 2.5px solid black; -webkit-box-shadow: -12.5px 1px 31px 6px rgba(0,0,0,0.75); -moz-box-shadow: -12.5px 1px 31px 6px rgba(0,0,0,0.75); box-shadow: -12.5px 1px 31px 6px rgba(0,0,0,0.75);}
 .page__container--left::after{ z-index:2; display: block; content:''; right:47.6%; top:120px; position:absolute; width:70px; height:67%; transform:scale(1.15); background-image:url(./assets/img/paper_divider.png); }
 .page__container--right{ position:relative; border-left: 2.5px solid black; -webkit-box-shadow: 12.5px 1px 31px 6px rgba(0,0,0,0.75); -moz-box-shadow: 12.5px 1px 31px 6px rgba(0,0,0,0.75); box-shadow: 12.5px 1px 31px 6px rgba(0,0,0,0.75);}
-.page__container--right .page__container__triangle{ color:white; width:220px; height:220px; background-image:url(./assets/img/front_book_triangle.png); position:absolute; bottom:0px; right:0px; display: flex; align-items: flex-end; justify-content: flex-end; padding-right:20px; padding-bottom:25px; box-sizing:border-box; font-family:'Arial'; font-size:1.5em; cursor:pointer}
-
+.page__container--right .page__container__triangle{ color:white; width:220px; height:220px; background-image:url(./assets/img/front_book_triangle.png); position:absolute; bottom:0px; right:0px; display: flex; align-items: flex-end; justify-content: flex-end; padding-right:20px; padding-bottom:25px; box-sizing:border-box; font-family:Rubik; font-size:1.5em; cursor:pointer}
+.page__container--right .page__container__triangle.disabled{ pointer-events: none; filter: grayscale(100%);}
 
 /* HOMEPAGE */
 .start .page__container--left{ background:transparent; border:unset; box-shadow:unset; -moz-box-shadow:unset; -webkit-box-shadow:unset}
@@ -80,6 +87,7 @@ h2, label, input { color: rgba(12, 14, 90, 0.949); }
 /* WORD SELECT */
 .word_select .page__container--left[data-firstpage=true] { background:#424550; background-image:url(./assets/img/wordguess_book_cover.jpg); background-position: right top; }
 .word_select .page__container--right h2{ font-size:2.5em; margin-top:12.5%; }
+.word_select .page__container--right h3{ font-size:1em; font-family:Rubik; text-align:center }
 
 /* TODO
 @keyframes anim{
