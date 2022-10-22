@@ -62,7 +62,15 @@ h2, label, input { color: rgba(12, 14, 90, 0.949); }
 
 /* HOMEPAGE */
 .start .page__container--left{ background:transparent; border:unset; }
-.start .page__container--right{ box-sizing: border-box; border:unset; background-image:url(./assets/img/front_book_cover.jpg); color: white; box-shadow: 0px 0px 20px rgba(0,0,0,.2); }
+
+.start .page__container--right{ position:relative; box-sizing: border-box; border:unset; background-image:url(./assets/img/front_book_cover.jpg); color: white; box-shadow: 0px 0px 20px rgba(0,0,0,.2); }
+.start .page__container--right::before{ display: block; content:''; left:-32px; top:-50px; transform:scale(.8); position:absolute; width:85px; height:115%; background-image:url(./assets/img/front_book_ring.png);  }
+
+.start .page__container--right button{
+  width:250px;
+  height:250px;
+}
+
 .start .page__container--right .page__container__sticker{ background:white; width:225px; padding:45px; margin-top:15%; color:black; transform:rotate(1.25deg); text-align: center;}
 .start .page__container--right .page__container__sticker::before{display: block; content:''; right:-40px; top:-20px; position:absolute; width:100px; height:85px; background-image:url(./assets/img/front_book_sticker.png); }
 .start .page__container--right .page__container__sticker::after{display: block; content:''; left:-30px; bottom:-30px; position:absolute; width:100px; height:85px; background-image:url(./assets/img/front_book_sticker.png); }
