@@ -27,13 +27,15 @@ class HomePage extends React.Component{
             <div className={this.props.classList}>
                 <div className="page__container page__container--left"></div>
                 <div className="page__container page__container--right">
-                    <h2> Hangman </h2>
-                    
-                    <form onSubmit={(e) => e.preventDefault()}>
-                        <label> Maximal mistakes 
-                            <input type="number" name="maxMistakes" onChange={this.handleInputChange} value={this.state.maxMistakes} placeholder={ !this.state.maxMistakes.length ? '10' : '' }/>
-                        </label>
-                    </form>
+                    <div className="page__container__sticker">
+                        <h2> Hangman </h2>
+                        
+                        <form onSubmit={(e) => e.preventDefault()}>
+                            <label> tries allowed: 
+                                <input type="number" name="maxMistakes" onChange={this.handleInputChange} value={this.state.maxMistakes} placeholder={ !this.state.maxMistakes.length ? '10' : '' }/>
+                            </label>
+                        </form>
+                    </div>
 
                     <button data-goto="word_select" data-mistakesallowed={this.state.maxMistakes} onClick={ this.props.changeScreen }>Play</button>
                 </div>
