@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import LettersPanel from './layouts/LettersPanel';
+import HomePage from './layouts/HomePage';
 import Hangman  from './components/Hangman';
 import './App.css';
 import React from 'react';
@@ -8,7 +9,7 @@ class App extends React.Component{
   constructor(){
     super();
     const maxAttempts = 5;
-    this.state = {healthAmount: maxAttempts, maxMistakes: maxAttempts, actualScreen: 'game'};
+    this.state = {healthAmount: maxAttempts, maxMistakes: maxAttempts, actualScreen: 'start'};
     this.dropHealth = this.dropHealth.bind(this);
   }
   
@@ -21,11 +22,11 @@ class App extends React.Component{
       this.setState({actualScreen: 'word_select'})
     } 
   }
-  
+
   render(){
     return (
       <div className="App">
-        <div className={ this.state.actualScreen === 'start' ? 'start visible' : 'start' }></div>
+        <HomePage className={ this.state.actualScreen === 'start' ? 'start visible' : 'start' }/>
 
         <div className={ this.state.actualScreen === 'game' ? 'game visible' : 'game' }>
           <Hangman healthLeft={this.state.healthAmount} maxMistakes={this.state.maxMistakes}/>
