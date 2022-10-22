@@ -1,7 +1,7 @@
 import React from 'react';
-import LettersDisplay from '../components/LettersDisplay';
-import LetterInput from '../components/LetterInput';
-import LetterTips  from '../components/LetterTips';
+import LettersDisplay from './LettersDisplay';
+import LetterInput from './LetterInput';
+import LetterTips  from './LetterTips';
 
 
 class LettersPanel extends React.Component{

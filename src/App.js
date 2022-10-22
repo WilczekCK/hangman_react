@@ -1,5 +1,5 @@
 import logo from './logo.svg';
-import LettersPanel from './layouts/LettersPanel';
+import LettersPanel from './components/LettersPanel';
 import HomePage from './layouts/HomePage';
 import WordselectPage from './layouts/WordselectPage';
 import Hangman  from './components/Hangman';
@@ -30,8 +30,6 @@ class App extends React.Component{
       previousScreen: state.actualScreen,
       actualScreen: e.target.attributes['data-goto'].value
     }));
-
-    this.setState({  });
   }
 
   render(){
@@ -45,7 +43,6 @@ class App extends React.Component{
         </div>
 
         <WordselectPage changeScreen={this.changeScreen} previousScreen={this.state.previousScreen} classList={ this.state.actualScreen === 'word_select' ? 'word_select visible' : 'word_select' }/>
-        <div className={ this.state.actualScreen === 'word_select_first' ? 'word_select_start visible' : 'start' }> Wpisz hasło, pierwsza osoba. </div>
       </div>
     );
   }
