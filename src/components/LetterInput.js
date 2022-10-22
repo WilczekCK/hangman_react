@@ -6,7 +6,6 @@ class LetterInput extends React.Component{
         this.state = {
             value: '',
             attempts: 0,
-            wordToGuess: props.wordToGuess.toLowerCase(),
             isLastGuessOkay: null,
             properLetters:   [],
             wrongLetters:    [],
@@ -19,7 +18,7 @@ class LetterInput extends React.Component{
     }
 
     isLetterInWordToGuess(){
-        return Array.from( this.state.wordToGuess.toLowerCase() ).includes(this.state.value)
+        return Array.from( this.props.wordToGuess.toLowerCase() ).includes(this.state.value)
     }
 
     assignLetterToArray(){
