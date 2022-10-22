@@ -4,12 +4,24 @@ class WordselectPage extends React.Component{
     constructor(props){
         super(props);
 
-        this.state = { wordToGuess: '' }
+        this.state = { wordToGuess: '', isWordProvided: false }
         this.handleInputChange = this.handleInputChange.bind(this);
     }
 
     handleInputChange(e){
-        this.setState({ wordToGuess: e.target.value });
+        const wordProvided = e.target.value;
+
+        if( wordProvided.length > 25 ) {
+            // tooo long word to guess....
+        } else {
+            if ( wordProvided.length <= 5 ) {
+                this.setState({ isWordProvided: false })
+            } else {
+                this.setState({ isWordProvided: true })
+            }
+
+            this.setState({ wordToGuess: wordProvided })
+        }
     }
 
     render(){
@@ -23,7 +35,7 @@ class WordselectPage extends React.Component{
                     </form>
 
                     <br/>
-                    <button data-goto="game" data-wordtoguess={this.state.wordToGuess} onClick={ this.props.changeScreen }>Play</button>
+                    <button disabled={!this.state.isWordProvided}  data-goto="game" data-wordtoguess={this.state.wordToGuess} onClick={ this.props.changeScreen }>Play</button>
                 </div>
             </div>
         );
