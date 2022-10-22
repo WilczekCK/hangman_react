@@ -26,7 +26,7 @@ class App extends React.Component{
   render(){
     return (
       <div className="App">
-        <HomePage className={ this.state.actualScreen === 'start' ? 'start visible' : 'start' }/>
+        <HomePage classList={ this.state.actualScreen === 'start' ? 'start visible' : 'start' }/>
 
         <div className={ this.state.actualScreen === 'game' ? 'game visible' : 'game' }>
           <Hangman healthLeft={this.state.healthAmount} maxMistakes={this.state.maxMistakes}/>

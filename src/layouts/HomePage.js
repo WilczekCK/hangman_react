@@ -2,14 +2,14 @@ import React from 'react';
 
 class HomePage extends React.Component{
     constructor(props){
-        super();
+        super(props);
     }
 
     render(){
         return (
-            <div>
-                <div className="page__left__container"></div>
-                <div className="page__right__container"></div>
+            <div className={this.props.classList}>
+                <div className="page__container page__container--left"></div>
+                <div className="page__container page__container--right"></div>
             </div>
         );
     }

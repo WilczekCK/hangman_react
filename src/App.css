@@ -1,7 +1,3 @@
-.App { text-align: center; }
-.App > div { display: none }
-.App > .visible { display: unset }
-
 .letters__container { padding:10px 0px 40px; }
 
 .letters__container form { display: flex; flex-direction: column; align-items: center; margin-top:20px; color:grey;}
@@ -46,7 +42,16 @@ td.hangman__box{ border:2px solid black; background:black }
 .hangman__container__counter--healths {color:red; font-size:24px; }
 
 
+/* GLOBALS */
+html{ background: #ebaa8d; display:flex; justify-content: center; height:100%; }
+body{ width:1160px; height:600px; border:5px solid black; align-self:center}
+#root{height:100%;}
+.App { text-align: center; height:100%;}
+.App > div { display: none; height:100%; }
+.App > .visible { display: flex; }
+
+.page__container{width:50%; height:100%; background:whitesmoke;}
+.page__container--left{ border-right: 1px solid black; }
+.page__container--right{ border-left: 1px solid black; }
 
 /* HOMEPAGE */
-html{ background: #ebaa8d; display:flex; justify-content: center; height:100%; }
-body{ width:1160px; height:600px;; border:5px solid black; align-self:center}
