@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import LettersPanel from './layouts/LettersPanel';
 import HomePage from './layouts/HomePage';
+import WordselectPage from './layouts/WordselectPage';
 import Hangman  from './components/Hangman';
 import './App.css';
 import React from 'react';
@@ -38,8 +39,8 @@ class App extends React.Component{
           <LettersPanel onWrongLetter={this.dropHealth} wordToGuess='Madagaskar'/>
         </div>
 
+        <WordselectPage changeScreen={this.changeScreen} classList={ this.state.actualScreen === 'word_select' ? 'word_select visible' : 'word_select' }/>
         <div className={ this.state.actualScreen === 'word_select_first' ? 'word_select_start visible' : 'start' }> Wpisz hasło, pierwsza osoba. </div>
-        <div className={ this.state.actualScreen === 'word_select' ? 'word_select visible' : 'word_select' } > Wpisz hasło, nie pierwsza osoba. </div>
       </div>
     );
   }

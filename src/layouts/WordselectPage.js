@@ -1,6 +1,6 @@
 import React from 'react';
 
-class HomePage extends React.Component{
+class WordselectPage extends React.Component{
     constructor(props){
         super(props);
     }
@@ -10,12 +10,12 @@ class HomePage extends React.Component{
             <div className={this.props.classList}>
                 <div className="page__container page__container--left"></div>
                 <div className="page__container page__container--right">
-                    <h2> Hangman </h2>
-                    <button data-goto="word_select" onClick={ this.props.changeScreen }>Play</button>
+                    <h2> Select password </h2>
+                    <button data-goto="game" onClick={ this.props.changeScreen }>Play</button>
                 </div>
             </div>
         );
     }
 }
 
-export default HomePage;
+export default WordselectPage;

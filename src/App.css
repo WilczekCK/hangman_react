@@ -56,4 +56,4 @@ body{height:100%}
 
 /* HOMEPAGE */
 .start .page__container--left{ background:transparent; border:unset; }
-.start .page__container--right{ border:unset; }
+.start .page__container--right{ border:unset; background:#424550; color: white; }
