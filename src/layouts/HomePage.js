@@ -37,7 +37,9 @@ class HomePage extends React.Component{
                         </form>
                     </div>
                 
-                    <div data-goto="word_select" data-mistakesallowed={this.state.maxMistakes} onClick={ this.props.changeScreen } className="page__container__triangle"></div>
+                    <div data-goto="word_select" data-mistakesallowed={this.state.maxMistakes} onClick={ this.props.changeScreen } className="page__container__triangle">
+                        START
+                    </div>
                 </div>
             </div>
         );
