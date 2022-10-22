@@ -44,3 +44,9 @@ td.hangman__box{ border:2px solid black; background:black }
 /* Healths Counter */
 .hangman__container__counter{ display:flex; flex-direction: column; justify-content: center; }
 .hangman__container__counter--healths {color:red; font-size:24px; }
+
+
+
+/* HOMEPAGE */
+html{ background: #ebaa8d; display:flex; justify-content: center; height:100%; }
+body{ width:1160px; height:600px;; border:5px solid black; align-self:center}

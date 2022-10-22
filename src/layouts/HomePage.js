@@ -6,7 +6,12 @@ class HomePage extends React.Component{
     }
 
     render(){
-        return 'Hello, starting page';
+        return (
+            <div>
+                <div className="page__left__container"></div>
+                <div className="page__right__container"></div>
+            </div>
+        );
     }
 }
 
