@@ -4,20 +4,22 @@ class HomePage extends React.Component{
     constructor(props){
         super(props);
 
-        this.state = { maxMistakes: 8 };
+        this.state = { maxMistakes: 10 };
         this.handleInputChange = this.handleInputChange.bind(this);
     }
 
     handleInputChange(e) {
         let fixedValue = e.target.value; // dont let negative values
         
-        if( fixedValue < 0 ) {
+        if ( !fixedValue.length ) {
+            fixedValue = "";
+        } else if ( fixedValue <= 0 ) {
             fixedValue = 1;
-        } else if( fixedValue > 12)  {
+        } else if ( fixedValue > 12)  {
             fixedValue = 12;
         }
 
-        this.setState({ maxMistakes: Math.abs(fixedValue) });
+        this.setState({ maxMistakes: fixedValue });
     }
 
     render(){
@@ -29,7 +31,7 @@ class HomePage extends React.Component{
                     
                     <form onSubmit={(e) => e.preventDefault()}>
                         <label> Maximal mistakes 
-                            <input type="number" min="1" name="maxMistakes" onChange={this.handleInputChange} value={this.state.maxMistakes} />
+                            <input type="number" name="maxMistakes" onChange={this.handleInputChange} value={this.state.maxMistakes} placeholder={ !this.state.maxMistakes.length ? '10' : '' }/>
                         </label>
                     </form>
 

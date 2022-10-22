@@ -10,7 +10,7 @@ import React from 'react';
 class App extends React.Component{
   constructor(){
     super();
-    this.state = {healthAmount: 5, maxMistakes: 5, actualScreen: 'start', previousScreen: 'start'};
+    this.state = {healthAmount: 10, maxMistakes: 10, actualScreen: 'start', previousScreen: 'start'};
     this.dropHealth = this.dropHealth.bind(this);
     this.changeScreen = this.changeScreen.bind(this);
   }
@@ -30,7 +30,7 @@ class App extends React.Component{
 
     // only at beginning, after setting the mistakes counter
     if ( this.state.actualScreen === 'start' ){
-      const maxMistakes =  e.target.attributes['data-mistakesallowed'] ? e.target.attributes['data-mistakesallowed'].value : 5;
+      const maxMistakes =  e.target.attributes['data-mistakesallowed'] ? e.target.attributes['data-mistakesallowed'].value : 10;
 
       this.setState({
         healthAmount: maxMistakes,
