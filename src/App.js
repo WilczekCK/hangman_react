@@ -21,11 +21,7 @@ class App extends React.Component{
       this.setState({actualScreen: 'word_select'})
     } 
   }
-
-  isPlayerStillAlive() {
-    
-  }
-
+  
   render(){
     return (
       <div className="App">
