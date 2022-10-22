@@ -26,6 +26,19 @@ class App extends React.Component{
   }
 
   changeScreen(e){
+    e.preventDefault();
+
+    // only at beginning, after setting the mistakes counter
+    if ( this.state.actualScreen === 'start' ){
+      const maxMistakes =  e.target.attributes['data-mistakesallowed'] ? e.target.attributes['data-mistakesallowed'].value : 5;
+
+      this.setState({
+        healthAmount: maxMistakes,
+        maxMistakes: maxMistakes
+      })
+    }
+
+    // after every screen change
     this.setState((state, props) => ({
       previousScreen: state.actualScreen,
       actualScreen: e.target.attributes['data-goto'].value
