@@ -21,8 +21,15 @@ class App extends React.Component{
   render(){
     return (
       <div className="App">
-        <Hangman healthLeft={this.state.healthAmount} maxMistakes={this.state.maxMistakes}/>
-        <LettersPanel onWrongLetter={this.dropHealth} wordToGuess='Madagaskar'/>
+        <div className="start"></div>
+
+        <div className="game">
+          <Hangman healthLeft={this.state.healthAmount} maxMistakes={this.state.maxMistakes}/>
+          <LettersPanel onWrongLetter={this.dropHealth} wordToGuess='Madagaskar'/>
+        </div>
+
+        <div className="word_select_start"></div>
+        <div className="word_select_another"></div>
       </div>
     );
   }
