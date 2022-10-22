@@ -63,7 +63,7 @@ h2, label, input { color: rgba(12, 14, 90, 0.949); }
 .App > div { display: none;  height:600px; }
 .App > .visible { display: flex; }
 
-.page__container{width:560px; height:100%; background:#e5dede;  background-image:url(./assets/img/paper_bg.jpg); display:flex; flex-direction: column; align-items: center; font-family: Parisienne;  }
+.page__container{padding-top: 30px; width:560px; height:100%; background:#e5dede;  background-image:url(./assets/img/paper_bg.jpg); display:flex; flex-direction: column; align-items: center; font-family: Parisienne;  }
 .page__container--left{ border-right: 2.5px solid black; -webkit-box-shadow: -12.5px 1px 31px 6px rgba(0,0,0,0.75); -moz-box-shadow: -12.5px 1px 31px 6px rgba(0,0,0,0.75); box-shadow: -12.5px 1px 31px 6px rgba(0,0,0,0.75);}
 .page__container--left::after{ z-index:2; display: block; content:''; right:47.6%; top:120px; position:absolute; width:70px; height:67%; transform:scale(1.15); background-image:url(./assets/img/paper_divider.png); }
 .page__container--right{ position:relative; border-left: 2.5px solid black; -webkit-box-shadow: 12.5px 1px 31px 6px rgba(0,0,0,0.75); -moz-box-shadow: 12.5px 1px 31px 6px rgba(0,0,0,0.75); box-shadow: 12.5px 1px 31px 6px rgba(0,0,0,0.75);}
@@ -74,7 +74,7 @@ h2, label, input { color: rgba(12, 14, 90, 0.949); }
 .start .page__container--left{ background:transparent; border:unset; box-shadow:unset; -moz-box-shadow:unset; -webkit-box-shadow:unset}
 .start .page__container--right{ box-sizing: border-box; border:unset; background:grey; background-image:url(./assets/img/front_book_cover.jpg); background-position: right top; color: white; -webkit-box-shadow: 0px 0px 25px 8px rgba(0,0,0,0.75); -moz-box-shadow: 0px 0px 25px 8px rgba(0,0,0,0.75); box-shadow: 0px 0px 25px 8px rgba(0,0,0,0.75); }
 .start .page__container--right::before{ display: block; content:''; left:-32px; top:-50px; transform:scale(.8); position:absolute; width:85px; height:115%; background-image:url(./assets/img/front_book_ring.png);  }
-.start .page__container--right .page__container__sticker{ -webkit-box-shadow: 0px 0px 25px -10px rgba(0,0,0,0.75); -moz-box-shadow: 0px 0px 25px -10px rgba(0,0,0,0.75); box-shadow: 0px 0px 25px -10px rgba(0,0,0,0.75); background:white; background-image:url(./assets/img/front_book_sticker_bg.jpg); width:225px; padding:45px; margin-top:15%; color:black; transform:rotate(1.25deg); text-align: center;}
+.start .page__container--right .page__container__sticker{ -webkit-box-shadow: 0px 0px 25px -10px rgba(0,0,0,0.75); -moz-box-shadow: 0px 0px 25px -10px rgba(0,0,0,0.75); box-shadow: 0px 0px 25px -10px rgba(0,0,0,0.75); background:white; background-image:url(./assets/img/front_book_sticker_bg.jpg); width:225px; padding:45px; margin-top:5%; color:black; transform:rotate(1.25deg); text-align: center;}
 .start .page__container--right .page__container__sticker::before{display: block; content:''; right:-40px; top:-20px; position:absolute; width:100px; height:85px; background-image:url(./assets/img/front_book_sticker.png); }
 .start .page__container--right .page__container__sticker::after{display: block; content:''; left:-30px; bottom:-30px; position:absolute; width:100px; height:85px; background-image:url(./assets/img/front_book_sticker.png); }
 .start .page__container--right .page__container__sticker h2{ margin:unset; font-size:3.25em }
@@ -86,27 +86,25 @@ h2, label, input { color: rgba(12, 14, 90, 0.949); }
 
 /* WORD SELECT */
 .word_select .page__container--left[data-firstpage=true] { background:#424550; background-image:url(./assets/img/wordguess_book_cover.jpg); background-position: right top; }
-.word_select .page__container--right h2{ font-size:2.5em; margin-top:12.5%; }
+.word_select .page__container--right h2{ font-size:2.5em; }
 .word_select .page__container--right h3{ font-size:1em; font-family:Rubik; text-align:center }
 .word_select .page__container--right input{  border-width: 3px; border-style: solid; border-color: rgba(12, 14, 90, 0.949); padding: 10px; }
 
 /* GAME */
-.page__container__points{ display:flex; flex-direction: column; width:315px; }
+.game h2{ font-size:2em; margin-bottom:50px; }
+.page__container__points{ margin-top:0px; display:flex; flex-direction: column; width:400px; }
+
 .page__container__points ul{ display:flex; justify-content:space-around; list-style-type: none; text-align:center; padding:0px; margin:0px;}
-.page__container__points li:first-of-type{ }
+.page__container__points ul li{border:2px solid black}
 
 .page__container__points .page__container__points__heading ul{ border-bottom:2px solid #424550; }
-.page__container__points .page__container__points__heading ul li:first-of-type{ border-right:2px solid #424550; }
+
 
 .page__container__points .page__container__points__players{ position: relative; display:flex; flex-direction: row; justify-content: space-around;}
-.page__container__points .page__container__points__players > div { width:50%; }
-.page__container__points .page__container__points__players ul > li { width:100% !important; }
-.page__container__points .page__container__points__players ul{ display:flex; flex-direction: column; text-align:center;}
-.page__container__points .page__container__points__players .page__container__points__players--a{border-right:2px solid black;}
-.page__container__points__players::after{ content:''; background:black; position:absolute; left:50%; bottom:-35px; transform:translateX(-50%); display:block; width:2px; height:35px; }
+.page__container__points .page__container__points__players > div { width:50%; text-align:center; border:2px solid black; border-top:unset; padding:15px 0px; font-weight:800; }
 
 .page__container__points .page__container__points__players ul li,
-.page__container__points .page__container__points__heading ul li{width:50%;border-bottom:2px solid black; padding:10px 0px;}
+.page__container__points .page__container__points__heading ul li{width:50%; padding:10px 0px; font-weight:800; font-size:1.25em}
 
 
 /* TODO

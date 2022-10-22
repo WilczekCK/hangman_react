@@ -23,16 +23,10 @@ class GamePage extends React.Component{
                         
                         <div class="page__container__points__players">
                             <div class="page__container__points__players--a">
-                                <ul>
-                                    <li>4</li>
-                                    <li>In progress...</li>
-                                </ul>
+                                4
                             </div>
                             <div class="page__container__points__players--b">
-                                <ul>
-                                    <li>2</li>
-                                    <li>In progress...</li>
-                                </ul>
+                                2
                             </div>
                         </div>
 
