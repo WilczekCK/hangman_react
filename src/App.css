@@ -1,6 +1,6 @@
 .letters__container { padding:10px 0px 40px; }
 
-.letters__container form { display: flex; flex-direction: row; align-items: center; margin-top:10px; color:grey; flex-wrap:wrap}
+.letters__container form { display: flex; flex-direction: row; align-items: center; justify-content:center; margin-top:10px; color:grey; flex-wrap:wrap}
 .letters__container form h3 { font-size:1.5em; margin-right:20px }
 .letters__container form button { font-size:1.2em;  text-shadow:1.5px 1.5px 3px rgba(12, 14, 90, 0.949); font-family: Rubik; height:26px; font-weight:800; background:transparent; border-radius:unset; border:2px solid  rgba(12, 14, 90, 0.949); border-left:unset; padding:0px 15px; color:white; background-image:url(./assets/img/button_bg.jpg)}
 .letters__container form input { background: transparent; width:100px; height:20px; text-align:center; border-radius:unset; border:2px solid  rgba(12, 14, 90, 0.949);}
