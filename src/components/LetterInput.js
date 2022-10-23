@@ -5,7 +5,6 @@ class LetterInput extends React.Component{
         super(props);
         this.state = {
             value: '',
-            attempts: 0,
             isLastGuessOkay: null,
             properLetters:   [],
             wrongLetters:    [],
@@ -15,6 +14,22 @@ class LetterInput extends React.Component{
         this.inputChange = this.inputChange.bind(this);
         this.assignLetterToArray = this.assignLetterToArray.bind(this);
         this.isLetterInWordToGuess = this.isLetterInWordToGuess.bind(this);
+    }
+
+
+    componentDidUpdate(prevProps, prevState){
+        // Clear letters on lose
+        if( !this.props.isHangmanAlive && this.state.properLetters.length > 0 ){
+            this.setState({
+                value: '',
+                attempts: 0,
+                isLastGuessOkay: null,
+                properLetters:   [],
+                wrongLetters:    []
+            })
+        }
+
+        return true;
     }
 
     isLetterInWordToGuess(){

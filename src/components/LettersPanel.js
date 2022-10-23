@@ -57,6 +57,18 @@ class LettersPanel extends React.Component{
         }, 3000)
     }
 
+
+    componentDidUpdate(prevProps, prevState){
+        // Clear letters on lose! wip
+        if( !this.props.isHangmanAlive && this.state.properLetters.length > 0 ){
+            this.setState({
+                wrongLetters: '', properLetters: '', repeatedLetter: '', isLastGuessOkay: null
+            })
+        }
+
+        return true;
+    }
+
     render(){
         return (
             <div className="letters__container">
@@ -77,7 +89,8 @@ class LettersPanel extends React.Component{
                         onLetterChange={this.onLetterChange}
                         onLetterExists={this.onLetterExists}
                         onWrongLetter={this.onWrongLetter}
-                        wordToGuess={this.props.wordToGuess.toLowerCase()} 
+                        wordToGuess={this.props.wordToGuess.toLowerCase()}
+                        isHangmanAlive={this.props.isHangmanAlive}
                     />
                 </div>
 
