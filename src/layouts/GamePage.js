@@ -37,7 +37,7 @@ class GamePage extends React.Component{
                     <h2> Player guessing... </h2>
                     
                     <Hangman healthLeft={this.props.healthLeft} maxMistakes={this.props.maxMistakes}/>
-                    <LettersPanel onWrongLetter={this.props.onWrongLetter} wordToGuess={this.props.wordToGuess}/>
+                    <LettersPanel changeScreen={this.props.changeScreen} isHangmanAlive={ this.props.healthLeft !== 0 } onWrongLetter={this.props.onWrongLetter} wordToGuess={this.props.wordToGuess}/>
                 </div>
             </div>
         );

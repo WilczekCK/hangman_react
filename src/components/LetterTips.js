@@ -9,9 +9,9 @@ class LetterTips extends React.Component{
         const {isLastGuessOkay, repeatedLetter} = this.props;
 
         if ( isLastGuessOkay === null ) { //init
-            return <span className="letters__container--tips">Welcome to the hangman game, guess first letter</span>;
+            return <span className="letters__container--tips">Guess your first letter</span>;
         } else if( isLastGuessOkay && repeatedLetter ){ //the same letter
-            return <span className="letters__container--tips">That letter is already provided</span>;
+            return <span className="letters__container--tips">That letter was provided already</span>;
         } else if( isLastGuessOkay ) { //ok
             return <span className="letters__container--tips">Go further...</span>
         } else { //wrong letter

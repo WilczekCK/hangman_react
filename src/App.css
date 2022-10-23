@@ -7,12 +7,12 @@
 
 .letters__container--tips{ text-align: center; width:100%; display:block; font-size:2em; margin-top:10px }
 
-.letters__container--letters { width:400px; font-size:1.5em; font-family: Rubik; text-align:center; display:flex; flex-wrap:wrap; flex-direction:row; justify-content: center; padding:20px;}
-.letters__container--letters span { border-bottom:2px solid black; width:25px; margin-left:5px;}
+.letters__container--letters { margin:0 auto; width:400px; font-size:1.5em; font-family: Rubik; text-align:center; display:flex; flex-wrap:wrap; flex-direction:row; justify-content: center; padding:20px;}
+.letters__container--letters span { min-height:28px; border-bottom:2px solid black; width:25px; margin-left:5px;}
 .letters__container--letters span:first-of-type{ text-transform: uppercase; }
 .letters__container--letters span.letters__container--letters--blank{ border-bottom:unset; }
 
-@keyframes bounce { 0% { transform: translateY(0);} 100% { transform: translateY(-20px); font-size:1.2em; } }
+@keyframes bounce { 0% { transform: translateY(0);} 100% { transform: translateY(-20px);  } }
 .letters__container--letters .letters__container--letters--repeated { animation: bounce 0.5s infinite alternate; } 
 
 /* Hangman */
@@ -65,7 +65,7 @@ body{height:100%}
 #root{height:100%; display:flex; justify-content: center; align-items:center}
 *{ color: rgba(12, 14, 90, 0.949); }
 h2, label, input { color: rgba(12, 14, 90, 0.949); }
-
+.hide{display:none}
 
 .App > div { display: none;  height:600px; }
 .App > .visible { display: flex; }

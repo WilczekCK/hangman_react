@@ -16,9 +16,7 @@ class Hangman extends React.Component{
             let wholeHealth = Array(parseInt(this.props.maxMistakes)).fill(0);
 
             const healthArray = wholeHealth.map(function (health, index){
-                console.log(index, healthAmount);
                 return <span key={index} className={index >= healthAmount.length ? 'health__lost' : '' }> </span>
-                //&#9829; 
             })
 
             return (

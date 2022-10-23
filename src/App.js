@@ -19,10 +19,6 @@ class App extends React.Component{
     this.setState((state, props) => ({
       healthAmount: state.healthAmount - 1
     }));
-
-    if( this.state.healthAmount <= 1 ) {
-      this.setState({actualScreen: 'word_select'})
-    } 
   }
 
   changeScreen(e){
@@ -47,6 +43,13 @@ class App extends React.Component{
       })
     }
 
+    if ( this.state.actualScreen === 'game' ) {
+      this.setState((state, props) => ({
+        healthAmount: state.maxMistakes,
+        wordToGuess: ''
+      }));
+    }
+
     // after every screen change
     this.setState((state, props) => ({
       previousScreen: state.actualScreen,
@@ -68,6 +71,7 @@ class App extends React.Component{
           maxMistakes={this.state.maxMistakes} 
           onWrongLetter={this.dropHealth} 
           wordToGuess={this.state.wordToGuess}
+          changeScreen={this.changeScreen}
         />
 
         <WordselectPage 

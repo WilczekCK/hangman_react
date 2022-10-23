@@ -72,12 +72,18 @@ class LettersPanel extends React.Component{
                     repeatedLetter={this.state.repeatedLetter}
                 />
                 
-                <LetterInput 
-                    onLetterChange={this.onLetterChange}
-                    onLetterExists={this.onLetterExists}
-                    onWrongLetter={this.onWrongLetter}
-                    wordToGuess={this.props.wordToGuess.toLowerCase()} 
-                />
+                <div className={this.props.isHangmanAlive ? 'letters__container__input' : 'letters__container__input hide'}>
+                    <LetterInput 
+                        onLetterChange={this.onLetterChange}
+                        onLetterExists={this.onLetterExists}
+                        onWrongLetter={this.onWrongLetter}
+                        wordToGuess={this.props.wordToGuess.toLowerCase()} 
+                    />
+                </div>
+
+                <div className={this.props.isHangmanAlive ? 'letters__container__input hide' : 'letters__container__input'}>
+                    <div className="page__container__triangle" data-goto="word_select" data-result="loser" onClick={ this.props.changeScreen }>PLAY</div>
+                </div>
             </div>
         )
     }
