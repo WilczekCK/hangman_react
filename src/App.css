@@ -1,8 +1,9 @@
 .letters__container { padding:10px 0px 40px; }
 
-.letters__container form { display: flex; flex-direction: column; align-items: center; margin-top:20px; color:grey;}
-.letters__container form button {padding:10px 0px; margin:10px 0px; margin-bottom:5px; font-weight:600; border-radius:0px; box-shadow:unset; border-color:transparent; background:black; color:white; width: 250px;}
-.letters__container form input { width:245px; height:30px; text-align:center}
+.letters__container form { display: flex; flex-direction: row; align-items: center; margin-top:20px; color:grey; flex-wrap:wrap}
+.letters__container form h3 { font-size:1.5em; margin-right:20px }
+.letters__container form button { font-size:1.2em;  text-shadow:1.5px 1.5px 3px rgba(12, 14, 90, 0.949); font-family: Rubik; height:26px; font-weight:800; background:transparent; border-radius:unset; border:2px solid  rgba(12, 14, 90, 0.949); border-left:unset; padding:0px 15px; color:white; background-image:url(./assets/img/button_bg.jpg)}
+.letters__container form input { background: transparent; width:100px; height:20px; text-align:center; border-radius:unset; border:2px solid  rgba(12, 14, 90, 0.949);}
 
 .letters__container--letters { display:flex; flex-direction:row; justify-content: center; padding:20px; height:22.5px;}
 .letters__container--letters span{ border-bottom:2px solid black; width:25px; margin-left:5px;}
@@ -14,7 +15,7 @@
 
 /* Hangman */
 
-.hangman__container{ border:10px solid black; padding:20px; min-width:315px;}
+.hangman__container{ border:2.5px solid black; padding:10px; min-width:315px;}
 
 table{ margin:0 auto; }
 table tr{ margin:0; padding:0; display:block; }

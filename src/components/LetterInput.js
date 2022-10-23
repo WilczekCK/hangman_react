@@ -75,9 +75,10 @@ class LetterInput extends React.Component{
     render(){
         return (
             <form onSubmit={this.submitForm}>
-                <input type="text" value={this.state.value} onChange={this.inputChange} maxLength="1" placeholder="Type a letter to ask"/>
+                <h3>Type in letter: </h3>
+                <input type="text" value={this.state.value} onChange={this.inputChange} maxLength="1" />
 
-                <button>Click here</button> or hit enter to guess a letter.
+                <button>OK</button>
             </form>
         );
     }
