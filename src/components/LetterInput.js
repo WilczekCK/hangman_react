@@ -5,7 +5,6 @@ class LetterInput extends React.Component{
         super(props);
         this.state = {
             value: '',
-            wordToGuessUniqueLetters: String.prototype.concat(...new Set(props.wordToGuess.toLowerCase())),
             isLastGuessOkay: null,
             properLetters:   [],
             wrongLetters:    [],
@@ -15,6 +14,8 @@ class LetterInput extends React.Component{
         this.inputChange = this.inputChange.bind(this);
         this.assignLetterToArray = this.assignLetterToArray.bind(this);
         this.isLetterInWordToGuess = this.isLetterInWordToGuess.bind(this);
+        
+        this.allLettersUnique = Array.from(String.prototype.concat(...new Set(props.wordToGuess.toLowerCase())));
     }
 
 
@@ -29,6 +30,8 @@ class LetterInput extends React.Component{
                 wrongLetters:    []
             })
         }
+
+        this.allLettersUnique = Array.from(String.prototype.concat(...new Set(this.props.wordToGuess.toLowerCase())));
 
         return true;
     }
@@ -78,6 +81,12 @@ class LetterInput extends React.Component{
             queueMicrotask(() => this.props.onLetterChange( this.state ));
         }
 
+        // WIN
+        console.log(this.allLettersUnique);
+        queueMicrotask(() => {
+            const isWordGuessed = this.allLettersUnique.every(v => this.state.properLetters.includes(v));
+            console.log(isWordGuessed);
+        })
     }
 
     wasLetterProvidedEarlier(){
