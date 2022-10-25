@@ -49,7 +49,7 @@ td.hangman__box{ border:2px solid black; background:black }
 .hangman__container__counter .hangman__container__counter--healths > span.health__lost { background-image:url(./assets/img/game_hearths_empty.png); }
 
 
-/* GLOBALS */
+/* GLOBALS  Parisienne */
 @font-face {
   font-family: 'Parisienne';
   src: url(./assets/fonts/Parisienne.ttf);

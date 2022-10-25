@@ -5,6 +5,7 @@ class LetterInput extends React.Component{
         super(props);
         this.state = {
             value: '',
+            wordToGuessUniqueLetters: String.prototype.concat(...new Set(props.wordToGuess.toLowerCase())),
             isLastGuessOkay: null,
             properLetters:   [],
             wrongLetters:    [],
