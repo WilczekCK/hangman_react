@@ -16,7 +16,18 @@ class LettersPanel extends React.Component{
         this.repeatedLetterEffectReset = this.repeatedLetterEffectReset.bind(this);
         this.clearLetterPanel = this.clearLetterPanel.bind(this);
 
+        this.doesPlayerLose = this.doesPlayerLose.bind(this);
+        this.doesPlayerWin = this.doesPlayerWin.bind(this);
+
         this.isRepeatedEffectOn = false;
+    }
+
+    doesPlayerLose(){
+        return !this.props.isHangmanAlive;
+    }    
+
+    doesPlayerWin(){
+        return this.props.isWordGuessed;
     }
 
     repeatedLetterEffectReset(){
@@ -59,19 +70,7 @@ class LettersPanel extends React.Component{
         }, 3000)
     }
 
-    componentDidUpdate(prevProps, prevState){
-        // Clear letters on lose! wip
-        if( !this.props.isHangmanAlive && this.state.properLetters.length > 0 ){
-            this.setState({
-                wrongLetters: '', properLetters: '', repeatedLetter: '', isLastGuessOkay: null
-            })
-        }
-
-        return true;
-    }
-
     clearLetterPanel(e){
-        console.log('dafuq');
         this.setState({
             wrongLetters: '', properLetters: '', repeatedLetter: '', isLastGuessOkay: null
         })
@@ -87,12 +86,13 @@ class LettersPanel extends React.Component{
                     wordToGuess={this.props.wordToGuess}
                 />
                 
-                <LetterTips
-                    isLastGuessOkay={this.state.isLastGuessOkay}
-                    repeatedLetter={this.state.repeatedLetter}
-                />
+                <div className={this.doesPlayerLose() || this.doesPlayerWin() ? 'letters__container__input hide' : 'letters__container__input'}>
+                    <LetterTips
+                        isLastGuessOkay={this.state.isLastGuessOkay}
+                        repeatedLetter={this.state.repeatedLetter}
+                    />
                 
-                <div className={!this.props.isHangmanAlive || this.props.isWordGuessed ? 'letters__container__input hide' : 'letters__container__input'}>
+                
                     <LetterInput 
                         onLetterChange={this.onLetterChange}
                         onLetterExists={this.onLetterExists}

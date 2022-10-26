@@ -8,7 +8,7 @@ class EndRound extends React.Component{
     render(){
         return(
             <div className={!this.props.isHangmanAlive || this.props.isWordGuessed ? 'letters__container__input' : 'letters__container__input hide'}>
-                <div className="page__container__triangle" data-goto="word_select" data-result="loser" onClick={(e) => {this.props.changeScreen(e); this.props.clearLetterPanel(e)} }>PLAY</div>
+                <div className="page__container__triangle" data-goto="word_select" onClick={(e) => {this.props.changeScreen(e); this.props.clearLetterPanel(e)} }>PLAY</div>
                 {this.props.isWordGuessed ? 'You win!': "You lose!"}
             </div>
         )
