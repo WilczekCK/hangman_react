@@ -2,6 +2,7 @@ import React from 'react';
 import LettersDisplay from './LettersDisplay';
 import LetterInput from './LetterInput';
 import LetterTips  from './LetterTips';
+import EndRound  from './EndRound';
 
 
 class LettersPanel extends React.Component{
@@ -94,9 +95,7 @@ class LettersPanel extends React.Component{
                     />
                 </div>
 
-                <div className={this.props.isHangmanAlive ? 'letters__container__input hide' : 'letters__container__input'}>
-                    <div className="page__container__triangle" data-goto="word_select" data-result="loser" onClick={ this.props.changeScreen }>PLAY</div>
-                </div>
+                <EndRound isHangmanAlive={this.props.isHangmanAlive} changeScreen={this.props.changeScreen} />
             </div>
         )
     }
