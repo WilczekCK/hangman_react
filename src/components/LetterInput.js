@@ -22,6 +22,8 @@ class LetterInput extends React.Component{
     componentDidUpdate(prevProps, prevState){
         // Clear letters on lose
         if( !this.props.isHangmanAlive && this.state.properLetters.length > 0 ){
+            this.props.changeRoundStatus( 'lose' );
+
             this.setState({
                 value: '',
                 attempts: 0,
@@ -32,7 +34,6 @@ class LetterInput extends React.Component{
         }
 
         this.allLettersUnique = Array.from(String.prototype.concat(...new Set(this.props.wordToGuess.toLowerCase())));
-
         return true;
     }
 
@@ -82,10 +83,20 @@ class LetterInput extends React.Component{
         }
 
         // WIN
-        console.log(this.allLettersUnique);
         queueMicrotask(() => {
             const isWordGuessed = this.allLettersUnique.every(v => this.state.properLetters.includes(v));
-            console.log(isWordGuessed);
+
+            if (isWordGuessed) {
+                this.props.changeRoundStatus( 'win' );
+
+                this.setState({
+                    value: '',
+                    attempts: 0,
+                    isLastGuessOkay: null,
+                    properLetters:   [],
+                    wrongLetters:    []
+                })
+            }
         })
     }
 

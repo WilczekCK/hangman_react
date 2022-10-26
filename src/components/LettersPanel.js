@@ -14,7 +14,8 @@ class LettersPanel extends React.Component{
         this.onLetterExists = this.onLetterExists.bind(this);
         this.onWrongLetter = this.onWrongLetter.bind(this);
         this.repeatedLetterEffectReset = this.repeatedLetterEffectReset.bind(this);
-        
+        this.clearLetterPanel = this.clearLetterPanel.bind(this);
+
         this.isRepeatedEffectOn = false;
     }
 
@@ -58,7 +59,6 @@ class LettersPanel extends React.Component{
         }, 3000)
     }
 
-
     componentDidUpdate(prevProps, prevState){
         // Clear letters on lose! wip
         if( !this.props.isHangmanAlive && this.state.properLetters.length > 0 ){
@@ -68,6 +68,13 @@ class LettersPanel extends React.Component{
         }
 
         return true;
+    }
+
+    clearLetterPanel(e){
+        console.log('dafuq');
+        this.setState({
+            wrongLetters: '', properLetters: '', repeatedLetter: '', isLastGuessOkay: null
+        })
     }
 
     render(){
@@ -85,17 +92,23 @@ class LettersPanel extends React.Component{
                     repeatedLetter={this.state.repeatedLetter}
                 />
                 
-                <div className={this.props.isHangmanAlive ? 'letters__container__input' : 'letters__container__input hide'}>
+                <div className={!this.props.isHangmanAlive || this.props.isWordGuessed ? 'letters__container__input hide' : 'letters__container__input'}>
                     <LetterInput 
                         onLetterChange={this.onLetterChange}
                         onLetterExists={this.onLetterExists}
                         onWrongLetter={this.onWrongLetter}
                         wordToGuess={this.props.wordToGuess.toLowerCase()}
                         isHangmanAlive={this.props.isHangmanAlive}
+                        changeRoundStatus={this.props.changeRoundStatus}
                     />
                 </div>
 
-                <EndRound isHangmanAlive={this.props.isHangmanAlive} changeScreen={this.props.changeScreen} />
+                <EndRound 
+                    isWordGuessed={this.props.isWordGuessed}
+                    isHangmanAlive={this.props.isHangmanAlive} 
+                    changeScreen={this.props.changeScreen} 
+                    clearLetterPanel={this.clearLetterPanel} 
+                />
             </div>
         )
     }

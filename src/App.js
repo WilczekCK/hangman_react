@@ -10,9 +10,10 @@ import React from 'react';
 class App extends React.Component{
   constructor(){
     super();
-    this.state = {healthAmount: 10, maxMistakes: 10, actualScreen: 'start', previousScreen: 'start', wordToGuess: ''};
+    this.state = {healthAmount: 10, maxMistakes: 10, isWordGuessed: false, actualScreen: 'start', previousScreen: 'start', wordToGuess: ''};
     this.dropHealth = this.dropHealth.bind(this);
     this.changeScreen = this.changeScreen.bind(this);
+    this.changeRoundStatus = this.changeRoundStatus.bind(this);
   }
   
   dropHealth(e){
@@ -21,7 +22,11 @@ class App extends React.Component{
     }));
   }
 
-
+  changeRoundStatus( gameStatus ){
+    this.setState({
+      isWordGuessed: gameStatus === 'win' ? true : false
+    })
+  }
 
   changeScreen(e){
     e.preventDefault();
@@ -45,10 +50,12 @@ class App extends React.Component{
       })
     }
 
+    // end of round
     if ( this.state.actualScreen === 'game' ) {
       this.setState((state, props) => ({
         healthAmount: state.maxMistakes,
-        wordToGuess: ''
+        wordToGuess: '',
+        isWordGuessed: '',
       }));
     }
 
@@ -69,11 +76,13 @@ class App extends React.Component{
 
         <GamePage 
           classList={ this.state.actualScreen === 'game' ? 'game visible' : 'game' }
+          isWordGuessed={this.state.isWordGuessed}
           healthLeft={this.state.healthAmount} 
           maxMistakes={this.state.maxMistakes} 
           onWrongLetter={this.dropHealth} 
           wordToGuess={this.state.wordToGuess}
           changeScreen={this.changeScreen}
+          changeRoundStatus={this.changeRoundStatus}
         />
 
         <WordselectPage 
