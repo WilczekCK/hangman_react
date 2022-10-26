@@ -9,22 +9,18 @@ class Hangman extends React.Component{
 
 
     createHealths(){
-        if( this.props.healthLeft === 0 ) {
-            return <p>You lose, the answer was: XYZ</p>
-        } else {
-            let healthAmount = Array(parseInt(this.props.healthLeft)).fill(0);
-            let wholeHealth = Array(parseInt(this.props.maxMistakes)).fill(0);
+        let healthAmount = Array(parseInt(this.props.healthLeft)).fill(0);
+        let wholeHealth = Array(parseInt(this.props.maxMistakes)).fill(0);
 
-            const healthArray = wholeHealth.map(function (health, index){
-                return <span key={index} className={index >= healthAmount.length ? 'health__lost' : '' }> </span>
-            })
+        const healthArray = wholeHealth.map(function (health, index){
+            return <span key={index} className={index >= healthAmount.length ? 'health__lost' : '' }> </span>
+        })
 
-            return (
-                <div className="hangman__container__counter">
-                    <div className="hangman__container__counter--healths">{healthArray}</div>
-                </div>
-            );
-        }
+        return (
+            <div className="hangman__container__counter">
+                <div className="hangman__container__counter--healths">{healthArray}</div>
+            </div>
+        );
     }
 
     percentageHealthLeft(){
