@@ -5,8 +5,6 @@ class LetterInput extends React.Component{
         super(props);
         this.state = {
             value: '',
-            attempts: 0,
-            wordToGuess: props.wordToGuess.toLowerCase(),
             isLastGuessOkay: null,
             properLetters:   [],
             wrongLetters:    [],
@@ -16,10 +14,31 @@ class LetterInput extends React.Component{
         this.inputChange = this.inputChange.bind(this);
         this.assignLetterToArray = this.assignLetterToArray.bind(this);
         this.isLetterInWordToGuess = this.isLetterInWordToGuess.bind(this);
+        
+        this.allLettersUnique = Array.from(String.prototype.concat(...new Set(props.wordToGuess.toLowerCase())));
+    }
+
+
+    componentDidUpdate(prevProps, prevState){
+        // Clear letters on lose
+        if( !this.props.isHangmanAlive && this.state.properLetters.length > 0 ){
+            this.props.changeRoundStatus( 'lose' );
+
+            this.setState({
+                value: '',
+                attempts: 0,
+                isLastGuessOkay: null,
+                properLetters:   [],
+                wrongLetters:    []
+            })
+        }
+
+        this.allLettersUnique = Array.from(String.prototype.concat(...new Set(this.props.wordToGuess.toLowerCase())));
+        return true;
     }
 
     isLetterInWordToGuess(){
-        return Array.from( this.state.wordToGuess.toLowerCase() ).includes(this.state.value)
+        return Array.from( this.props.wordToGuess.toLowerCase() ).includes(this.state.value)
     }
 
     assignLetterToArray(){
@@ -63,6 +82,22 @@ class LetterInput extends React.Component{
             queueMicrotask(() => this.props.onLetterChange( this.state ));
         }
 
+        // WIN
+        queueMicrotask(() => {
+            const isWordGuessed = this.allLettersUnique.every(v => this.state.properLetters.includes(v));
+
+            if (isWordGuessed) {
+                this.props.changeRoundStatus( 'win' );
+
+                this.setState({
+                    value: '',
+                    attempts: 0,
+                    isLastGuessOkay: null,
+                    properLetters:   [],
+                    wrongLetters:    []
+                })
+            }
+        })
     }
 
     wasLetterProvidedEarlier(){
@@ -76,9 +111,10 @@ class LetterInput extends React.Component{
     render(){
         return (
             <form onSubmit={this.submitForm}>
-                <input type="text" value={this.state.value} onChange={this.inputChange} maxLength="1" placeholder="Type a letter to ask"/>
+                <h3>Type in letter: </h3>
+                <input type="text" value={this.state.value} onChange={this.inputChange} maxLength="1" />
 
-                <button>Click here</button> or hit enter to guess a letter.
+                <button>OK</button>
             </form>
         );
     }

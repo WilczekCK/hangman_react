@@ -1,7 +1,8 @@
 import React from 'react';
-import LettersDisplay from '../components/LettersDisplay';
-import LetterInput from '../components/LetterInput';
-import LetterTips  from '../components/LetterTips';
+import LettersDisplay from './LettersDisplay';
+import LetterInput from './LetterInput';
+import LetterTips  from './LetterTips';
+import EndRound  from './EndRound';
 
 
 class LettersPanel extends React.Component{
@@ -13,8 +14,20 @@ class LettersPanel extends React.Component{
         this.onLetterExists = this.onLetterExists.bind(this);
         this.onWrongLetter = this.onWrongLetter.bind(this);
         this.repeatedLetterEffectReset = this.repeatedLetterEffectReset.bind(this);
-        
+        this.clearLetterPanel = this.clearLetterPanel.bind(this);
+
+        this.doesPlayerLose = this.doesPlayerLose.bind(this);
+        this.doesPlayerWin = this.doesPlayerWin.bind(this);
+
         this.isRepeatedEffectOn = false;
+    }
+
+    doesPlayerLose(){
+        return !this.props.isHangmanAlive;
+    }    
+
+    doesPlayerWin(){
+        return this.props.isWordGuessed;
     }
 
     repeatedLetterEffectReset(){
@@ -57,6 +70,12 @@ class LettersPanel extends React.Component{
         }, 3000)
     }
 
+    clearLetterPanel(e){
+        this.setState({
+            wrongLetters: '', properLetters: '', repeatedLetter: '', isLastGuessOkay: null
+        })
+    }
+
     render(){
         return (
             <div className="letters__container">
@@ -67,16 +86,28 @@ class LettersPanel extends React.Component{
                     wordToGuess={this.props.wordToGuess}
                 />
                 
-                <LetterTips
-                    isLastGuessOkay={this.state.isLastGuessOkay}
-                    repeatedLetter={this.state.repeatedLetter}
-                />
+                <div className={this.doesPlayerLose() || this.doesPlayerWin() ? 'letters__container__input hide' : 'letters__container__input'}>
+                    <LetterTips
+                        isLastGuessOkay={this.state.isLastGuessOkay}
+                        repeatedLetter={this.state.repeatedLetter}
+                    />
                 
-                <LetterInput 
-                    onLetterChange={this.onLetterChange}
-                    onLetterExists={this.onLetterExists}
-                    onWrongLetter={this.onWrongLetter}
-                    wordToGuess={this.props.wordToGuess.toLowerCase()} 
+                
+                    <LetterInput 
+                        onLetterChange={this.onLetterChange}
+                        onLetterExists={this.onLetterExists}
+                        onWrongLetter={this.onWrongLetter}
+                        wordToGuess={this.props.wordToGuess.toLowerCase()}
+                        isHangmanAlive={this.props.isHangmanAlive}
+                        changeRoundStatus={this.props.changeRoundStatus}
+                    />
+                </div>
+
+                <EndRound 
+                    isWordGuessed={this.props.isWordGuessed}
+                    isHangmanAlive={this.props.isHangmanAlive} 
+                    changeScreen={this.props.changeScreen} 
+                    clearLetterPanel={this.clearLetterPanel} 
                 />
             </div>
         )
