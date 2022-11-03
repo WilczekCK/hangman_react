@@ -72,14 +72,25 @@ h2, label, input { color: rgba(12, 14, 90, 0.949); }
 
 @media (max-width:1200px){
   .App > .visible { flex-direction: column; }
-  .page__container{ padding-bottom:200px; }
-  .page__container--left::after{transform:rotate(90deg) !important; margin-top:140px; }
+  
+  .page__container--right::before{transform:rotate(90deg) !important; position:relative; top:-42% !important; left:45% !important; width:50px !important; height:500px !important; background-repeat: repeat-y; }
+  .page__container--left::after{transform:rotate(90deg) !important; margin-top:140px; display:none !important }
   .page__container--right h2{ margin-bottom:0px; }
 
   
+  .start .page__container--left{ display:none; }
+  .start .page__container--right{ height:800px; }
+
   .hangman__container{}
   .hangman__container__counter div > *{ transform:scale(.8) }
   
+}
+
+@media (max-width:600px){
+  .App > .visible { transform:scale(.7)}
+}
+@media (max-width:400px){
+  .App > .visible { transform:scale(.5)}
 }
 
 .page__container{box-sizing:border-box; padding-top: 30px; width:560px; height:100%; background:#e5dede;  background-image:url(./assets/img/paper_bg.jpg); display:flex; flex-direction: column; align-items: center; font-family: Fondamento;  }
