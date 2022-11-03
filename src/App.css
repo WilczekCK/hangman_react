@@ -114,9 +114,9 @@ h2, label, input { color: rgba(12, 14, 90, 0.949); }
 .page__container__points .page__container__points__players ul li,
 .page__container__points .page__container__points__heading ul li{width:50%; padding:10px 0px; font-weight:800; font-size:1.25em}
 
-.page__container--right h2.letters__container__endround--win{color:green; text-align:center; font-size:2.5em}
-.page__container--right h2.letters__container__endround--lose{color:red; text-align:center; font-size:2.5em}
-
+.page__container--right h2.letters__container__endround--win{color:green; text-align:center; font-size:2.5em; margin-bottom:0px;}
+.page__container--right h2.letters__container__endround--lose{color:red; text-align:center; font-size:2.5em; margin-bottom:0px;}
+.page__container--right .letters__container--points{ text-align: center; margin:0 auto; }
 
 /* TODO
 @keyframes anim{
