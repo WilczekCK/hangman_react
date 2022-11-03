@@ -84,6 +84,8 @@ h2, label, input { color: rgba(12, 14, 90, 0.949); }
   .word_select .page__container--left{ display: none; }
   .word_select .page__container--right::before{z-index:2; display: block; content:''; position:absolute; width:70px; background-image:url(./assets/img/paper_divider.png);  transform:rotate(270deg) !important; top:-40% !important; left:45% !important; width:50px !important; height:510px !important; background-repeat: repeat-y; }
 
+  .game .page__container--left{ display: none; }
+
   .hangman__container{}
   .hangman__container__counter div > *{ transform:scale(.8) }
   
