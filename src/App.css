@@ -49,9 +49,9 @@ td.hangman__box{ border:2px solid black; background:black }
 .hangman__container__counter .hangman__container__counter--healths > span.health__lost { background-image:url(./assets/img/game_hearths_empty.png); }
 
 
-/* GLOBALS  Parisienne */
+/* GLOBALS */
 @font-face {
-  font-family: 'Parisienne';
+  font-family: 'Fondamento';
   src: url(./assets/fonts/Fondamento.ttf);
 }
 
@@ -82,7 +82,7 @@ h2, label, input { color: rgba(12, 14, 90, 0.949); }
   
 }
 
-.page__container{box-sizing:border-box; padding-top: 30px; width:560px; height:100%; background:#e5dede;  background-image:url(./assets/img/paper_bg.jpg); display:flex; flex-direction: column; align-items: center; font-family: Parisienne;  }
+.page__container{box-sizing:border-box; padding-top: 30px; width:560px; height:100%; background:#e5dede;  background-image:url(./assets/img/paper_bg.jpg); display:flex; flex-direction: column; align-items: center; font-family: Fondamento;  }
 .page__container--left{ border-right: 2.5px solid black; -webkit-box-shadow: -12.5px 1px 31px 6px rgba(0,0,0,0.75); -moz-box-shadow: -12.5px 1px 31px 6px rgba(0,0,0,0.75); box-shadow: -12.5px 1px 31px 6px rgba(0,0,0,0.75);}
 .page__container--left::after{ z-index:2; display: block; content:''; right:47.6%; top:120px; position:absolute; width:70px; height:67%; transform:scale(1.15); background-image:url(./assets/img/paper_divider.png); }
 .page__container--right{ position:relative; border-left: 2.5px solid black; -webkit-box-shadow: 12.5px 1px 31px 6px rgba(0,0,0,0.75); -moz-box-shadow: 12.5px 1px 31px 6px rgba(0,0,0,0.75); box-shadow: 12.5px 1px 31px 6px rgba(0,0,0,0.75);}
@@ -100,7 +100,7 @@ h2, label, input { color: rgba(12, 14, 90, 0.949); }
 .start .page__container--right .page__container__sticker h2{ margin:unset; font-size:3.25em }
 .start .page__container--right .page__container__sticker label{ font-size:1.5em; margin-top:10px; }
 .start .page__container--right .page__container__sticker label::before{ transform:rotate(-3deg); content:''; width:150px; height:55px; z-index:-1; background-image:url(./assets/img/front_book_hangman.png); position:absolute; bottom:54px; right:0px; display: flex; background-repeat:no-repeat  }
-.start .page__container--right .page__container__sticker input{ font-family: Parisienne; font-weight:800; font-size:.9em; padding-top:5px; text-align:center; -moz-appearance: textfield; margin-left:2.5%; width: 70px; height:25px; z-index:9999; border-width:10px 5px; border-style:solid; border-color: rgba(12, 14, 90, 0.949);}
+.start .page__container--right .page__container__sticker input{ font-family: Fondamento; font-weight:800; font-size:.9em; padding-top:5px; text-align:center; -moz-appearance: textfield; margin-left:2.5%; width: 70px; height:25px; z-index:9999; border-width:10px 5px; border-style:solid; border-color: rgba(12, 14, 90, 0.949);}
 .start .page__container--left::after{ background-image:none; }
 
 
