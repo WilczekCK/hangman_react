@@ -70,6 +70,18 @@ h2, label, input { color: rgba(12, 14, 90, 0.949); }
 .App > div { display: none;  height:600px; }
 .App > .visible { display: flex; }
 
+@media (max-width:1200px){
+  .App > .visible { flex-direction: column; }
+  .page__container{ padding-bottom:200px; }
+  .page__container--left::after{transform:rotate(90deg) !important; margin-top:140px; }
+  .page__container--right h2{ margin-bottom:0px; }
+
+  
+  .hangman__container{}
+  .hangman__container__counter div > *{ transform:scale(.8) }
+  
+}
+
 .page__container{box-sizing:border-box; padding-top: 30px; width:560px; height:100%; background:#e5dede;  background-image:url(./assets/img/paper_bg.jpg); display:flex; flex-direction: column; align-items: center; font-family: Parisienne;  }
 .page__container--left{ border-right: 2.5px solid black; -webkit-box-shadow: -12.5px 1px 31px 6px rgba(0,0,0,0.75); -moz-box-shadow: -12.5px 1px 31px 6px rgba(0,0,0,0.75); box-shadow: -12.5px 1px 31px 6px rgba(0,0,0,0.75);}
 .page__container--left::after{ z-index:2; display: block; content:''; right:47.6%; top:120px; position:absolute; width:70px; height:67%; transform:scale(1.15); background-image:url(./assets/img/paper_divider.png); }
