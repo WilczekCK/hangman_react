@@ -73,13 +73,16 @@ h2, label, input { color: rgba(12, 14, 90, 0.949); }
 @media (max-width:1200px){
   .App > .visible { flex-direction: column; }
   
-  .page__container--right::before{transform:rotate(90deg) !important; position:relative; top:-42% !important; left:45% !important; width:50px !important; height:500px !important; background-repeat: repeat-y; }
+  .page__container--right::before{transform:rotate(90deg) scale(.7) !important; position: relative; width:80px !important; height:720px !important; top:-58.5% !important; left:43.5% !important}
   .page__container--left::after{transform:rotate(90deg) !important; margin-top:140px; display:none !important }
   .page__container--right h2{ margin-bottom:0px; }
 
   
   .start .page__container--left{ display:none; }
   .start .page__container--right{ height:800px; }
+
+  .word_select .page__container--left{ display: none; }
+  .word_select .page__container--right::before{z-index:2; display: block; content:''; position:absolute; width:70px; background-image:url(./assets/img/paper_divider.png);  transform:rotate(270deg) !important; top:-40% !important; left:45% !important; width:50px !important; height:510px !important; background-repeat: repeat-y; }
 
   .hangman__container{}
   .hangman__container__counter div > *{ transform:scale(.8) }
