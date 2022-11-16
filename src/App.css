@@ -61,7 +61,7 @@ td.hangman__box{ border:2px solid black; background:black }
 }
 
 html{background-image:url(./assets/img/bg.jpg); height:100%; background-size:cover;}
-body{height:100%}
+body{height:100%; overflow:hidden}
 #root{height:100%; display:flex; justify-content: center; align-items:center}
 *{ color: rgba(12, 14, 90, 0.949); }
 h2, label, input { color: rgba(12, 14, 90, 0.949); }
