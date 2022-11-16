@@ -104,7 +104,7 @@ h2, label, input { color: rgba(12, 14, 90, 0.949); }
 
 .page__container{box-sizing:border-box; padding-top: 30px; width:560px; height:100%; background:#e5dede;  background-image:url(./assets/img/paper_bg.jpg); display:flex; flex-direction: column; align-items: center; font-family: Fondamento;  }
 .page__container--left{ border-right: 2.5px solid black; -webkit-box-shadow: -12.5px 1px 31px 6px rgba(0,0,0,0.75); -moz-box-shadow: -12.5px 1px 31px 6px rgba(0,0,0,0.75); box-shadow: -12.5px 1px 31px 6px rgba(0,0,0,0.75);}
-.page__container--left::after{ z-index:2; display: block; content:''; right:47.6%; top:120px; position:absolute; width:70px; height:67%; transform:scale(1.15); background-image:url(./assets/img/paper_divider.png); }
+.page__container--left::after{ z-index:2; display: block; content:''; left:50%; top:30px; position:relative; width:70px; transform:scale(1.15); background-image:url(./assets/img/paper_divider.png); background-repeat:repeat-y; height:85%; }
 .page__container--right{ position:relative; border-left: 2.5px solid black; -webkit-box-shadow: 12.5px 1px 31px 6px rgba(0,0,0,0.75); -moz-box-shadow: 12.5px 1px 31px 6px rgba(0,0,0,0.75); box-shadow: 12.5px 1px 31px 6px rgba(0,0,0,0.75);}
 .page__container--right .page__container__triangle{ color:white; width:220px; height:220px; background-image:url(./assets/img/front_book_triangle.png); position:absolute; bottom:0px; right:0px; display: flex; align-items: flex-end; justify-content: flex-end; padding-right:20px; padding-bottom:25px; box-sizing:border-box; font-family:Rubik; font-size:1.5em; cursor:pointer}
 .page__container--right .page__container__triangle.disabled{ pointer-events: none; filter: grayscale(100%);}
@@ -149,6 +149,8 @@ h2, label, input { color: rgba(12, 14, 90, 0.949); }
 .page__container--right h2.letters__container__endround--win{color:green; text-align:center; font-size:2.5em; margin-bottom:0px;}
 .page__container--right h2.letters__container__endround--lose{color:red; text-align:center; font-size:2.5em; margin-bottom:0px;}
 .page__container--right .letters__container--points{ text-align: center; margin:0 auto; }
+
+.game .page__container--left::after{position: relative; min-height:85%; height:85%; top:-170px; }
 
 /* TODO
 @keyframes anim{
