@@ -10,7 +10,7 @@ import React from 'react';
 class App extends React.Component{
   constructor(){
     super();
-    this.state = {healthAmount: 10, maxMistakes: 10, isWordGuessed: false, actualScreen: 'start', previousScreen: 'start', wordToGuess: ''};
+    this.state = {playerGuessing: 1, score: { playerOne: 0, playerTwo: 0 }, healthAmount: 10, maxMistakes: 10, isWordGuessed: false, actualScreen: 'start', previousScreen: 'start', wordToGuess: ''};
     this.dropHealth = this.dropHealth.bind(this);
     this.changeScreen = this.changeScreen.bind(this);
     this.changeRoundStatus = this.changeRoundStatus.bind(this);
@@ -56,6 +56,7 @@ class App extends React.Component{
         healthAmount: state.maxMistakes,
         wordToGuess: '',
         isWordGuessed: '',
+        playerGuessing: state.playerGuessing === 1 ? 2 : 1,
       }));
     }
 
