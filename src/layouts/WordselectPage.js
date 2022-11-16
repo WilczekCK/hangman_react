@@ -4,7 +4,7 @@ class WordselectPage extends React.Component{
     constructor(props){
         super(props);
 
-        this.state = { wordToGuess: 'Madagascar', isWordProvided: false, wordTip:'' }
+        this.state = { wordToGuess: '', isWordProvided: false, wordTip:'' }
         this.handleInputChange = this.handleInputChange.bind(this);
     }
 
