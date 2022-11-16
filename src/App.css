@@ -76,7 +76,7 @@ h2, label, input { color: rgba(12, 14, 90, 0.949); }
   .page__container--right::before{transform:rotate(90deg) scale(.7) !important; position: relative; width:80px !important; height:720px !important; top:-58.5% !important; left:43.5% !important}
   .page__container--left::after{transform:rotate(90deg) !important; margin-top:140px; display:none !important }
   .page__container--right h2{ margin-bottom:0px; }
-
+  .page__container--right .page__container__points--container {display:block !important;}
   
   .start .page__container--left{ display:none; }
   .start .page__container--right{ height:800px; }
@@ -97,9 +97,11 @@ h2, label, input { color: rgba(12, 14, 90, 0.949); }
 
 @media (max-width:600px){
   .App > .visible { transform:scale(.7)}
+  
 }
 @media (max-width:400px){
   .App > .visible { transform:scale(.5)}
+
 }
 
 .page__container{box-sizing:border-box; padding-top: 30px; width:560px; height:100%; background:#e5dede;  background-image:url(./assets/img/paper_bg.jpg); display:flex; flex-direction: column; align-items: center; font-family: Fondamento;  }
@@ -108,6 +110,9 @@ h2, label, input { color: rgba(12, 14, 90, 0.949); }
 .page__container--right{ position:relative; border-left: 2.5px solid black; -webkit-box-shadow: 12.5px 1px 31px 6px rgba(0,0,0,0.75); -moz-box-shadow: 12.5px 1px 31px 6px rgba(0,0,0,0.75); box-shadow: 12.5px 1px 31px 6px rgba(0,0,0,0.75);}
 .page__container--right .page__container__triangle{ color:white; width:220px; height:220px; background-image:url(./assets/img/front_book_triangle.png); position:absolute; bottom:0px; right:0px; display: flex; align-items: flex-end; justify-content: flex-end; padding-right:20px; padding-bottom:25px; box-sizing:border-box; font-family:Rubik; font-size:1.5em; cursor:pointer}
 .page__container--right .page__container__triangle.disabled{ pointer-events: none; filter: grayscale(100%);}
+
+.page__container--right .page__container__points--container {display:none}
+
 
 /* HOMEPAGE */
 .start .page__container--left{ background:transparent; border:unset; box-shadow:unset; -moz-box-shadow:unset; -webkit-box-shadow:unset}
@@ -132,6 +137,8 @@ h2, label, input { color: rgba(12, 14, 90, 0.949); }
 
 /* GAME */
 .game h2{ font-size:2.4em; margin-top:14px; }
+
+.page__container__points--container{ text-align: center; }
 
 .page__container__points{ display:flex; flex-direction: column; width:400px; margin-top:-10px; }
 

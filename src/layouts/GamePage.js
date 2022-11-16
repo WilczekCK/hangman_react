@@ -20,6 +20,8 @@ class GamePage extends React.Component{
                     
                     <Hangman healthLeft={this.props.healthLeft} maxMistakes={this.props.maxMistakes}/>
                     <LettersPanel healthLeft={this.props.healthLeft} isWordGuessed={this.props.isWordGuessed} changeScreen={this.props.changeScreen} changeRoundStatus={this.props.changeRoundStatus} isHangmanAlive={ this.props.healthLeft !== 0 } onWrongLetter={this.props.onWrongLetter} wordToGuess={this.props.wordToGuess}/>
+
+                    <PointsPanel scores={this.props.scores} />
                 </div>
             </div>
         );

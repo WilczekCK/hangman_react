@@ -9,7 +9,7 @@ class PointsPanel extends React.Component{
     render(){ 
         const {playerOne, playerTwo} = this.props.scores;
         return (
-            <>
+            <div className="page__container__points--container">
                 <h2> Player points </h2>
 
                 <div className="page__container__points">
@@ -30,7 +30,7 @@ class PointsPanel extends React.Component{
                     </div>
 
                 </div>
-            </>
+            </div>
         )
     }
 }
