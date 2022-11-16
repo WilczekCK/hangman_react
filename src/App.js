@@ -53,7 +53,7 @@ class App extends React.Component{
     // end of round
     if ( this.state.actualScreen === 'game' ) {
       this.setState((state, props) => ({
-        [state.playerGuessing === 1 ? 'playerOneScore' : 'playerTwoScore' ]: state.healthAmount,
+        [state.playerGuessing === 1 ? 'playerOneScore' : 'playerTwoScore' ]: parseInt([state.playerGuessing === 1 ? state.playerOneScore : state.playerTwoScore ]) + parseInt(state.healthAmount),
         healthAmount: state.maxMistakes,
         wordToGuess: '',
         isWordGuessed: '',
