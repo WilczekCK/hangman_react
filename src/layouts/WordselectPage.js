@@ -33,7 +33,7 @@ class WordselectPage extends React.Component{
                 <div className="page__container page__container--right">
                     <h2> Type the word to guess: </h2>
                     <form onSubmit={(e) => e.preventDefault()}>
-                        <input type="text" name="maxMistakes" onChange={this.handleInputChange} value={this.state.wordToGuess} placeholder="Madagascar"/>
+                        <input type="password" name="maxMistakes" onChange={this.handleInputChange} value={this.state.wordToGuess} placeholder="Madagascar"/>
                     </form>
 
                     <h3>{this.state.wordTip}</h3>
