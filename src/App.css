@@ -17,7 +17,7 @@
 
 /* Hangman */
 
-.hangman__container{ border:2.5px solid black; padding:10px; min-width:315px;}
+.hangman__container{ border:2.5px solid black; padding:10px; min-width:315px; margin-top:20px;}
 
 table{ margin:0 auto; }
 table tr{ margin:0; padding:0; display:block; }
@@ -49,10 +49,10 @@ td.hangman__box{ border:2px solid black; background:black }
 .hangman__container__counter .hangman__container__counter--healths > span.health__lost { background-image:url(./assets/img/game_hearths_empty.png); }
 
 
-/* GLOBALS  Parisienne */
+/* GLOBALS */
 @font-face {
-  font-family: 'Parisienne';
-  src: url(./assets/fonts/Parisienne.ttf);
+  font-family: 'Fondamento';
+  src: url(./assets/fonts/Fondamento.ttf);
 }
 
 @font-face {
@@ -61,7 +61,7 @@ td.hangman__box{ border:2px solid black; background:black }
 }
 
 html{background-image:url(./assets/img/bg.jpg); height:100%; background-size:cover;}
-body{height:100%}
+body{height:100%; overflow:hidden}
 #root{height:100%; display:flex; justify-content: center; align-items:center}
 *{ color: rgba(12, 14, 90, 0.949); }
 h2, label, input { color: rgba(12, 14, 90, 0.949); }
@@ -70,37 +70,106 @@ h2, label, input { color: rgba(12, 14, 90, 0.949); }
 .App > div { display: none;  height:600px; }
 .App > .visible { display: flex; }
 
-.page__container{box-sizing:border-box; padding-top: 30px; width:560px; height:100%; background:#e5dede;  background-image:url(./assets/img/paper_bg.jpg); display:flex; flex-direction: column; align-items: center; font-family: Parisienne;  }
+@media (max-width:1200px){
+  .App > .visible { flex-direction: column; }
+  
+  .page__container--right::before{transform:rotate(90deg) scale(.7) !important; position: relative; width:80px !important; height:720px !important; top:-58.5% !important; left:43.5% !important}
+  .page__container--left::after{transform:rotate(90deg) !important; margin-top:140px; display:none !important }
+  .page__container--right h2{ margin-bottom:0px; }
+  
+  
+  .page__container--right .page__container__points--container {display:block !important; margin-top:30px;}
+  .page__container--right .page__container__points--container h2 {display:none}
+
+  
+  .start .page__container--left{ display:none; }
+  .start .page__container--right{ height:800px; }
+
+  .game .letters__container{padding-bottom:5px}
+
+  .letters__container__input{margin-top:5px;}
+  .game .letters__container__input form {margin-top:30px}
+  .game .letters__container__input span {margin-top:20px}
+  
+  .game .letters__container__input form h3{ margin-top:0px; margin-bottom:0px; }
+  .game .letters__container__input form input,
+  .game .letters__container__input form button{margin-top:-2.5px;}
+  
+  .game .letters__container__input .letters__container--tips{font-size:1.5em; margin-top:8px;}
+
+  .game .letters__container--letters { margin-top:-15px }
+  
+
+
+  .game .page__container__points ul li,
+  .game .page__container__points .page__container__points__players > div,
+  .game .page__container__points .page__container__points__heading ul{ border:unset; padding:0px 0px; margin-top:5px; }
+  .game .page__container__points .page__container__points__heading ul{ border-width:.5px; font-size:.8em}
+  .game .page__container__points .page__container__points__players ul li,
+  .game .page__container__points .page__container__points__heading ul li{ padding:0px 0px; }
+
+  .word_select .page__container--left{ display: none; }
+  .word_select .page__container--right{ border-left:unset; -webkit-box-shadow: 0px 0px 25px 8px rgba(0,0,0,0.75); -moz-box-shadow: 0px 0px 25px 8px rgba(0,0,0,0.75); box-shadow: 0px 0px 25px 8px rgba(0,0,0,0.75); }
+  .game .page__container--right{ border-left:unset; -webkit-box-shadow: 0px 0px 25px 8px rgba(0,0,0,0.75); -moz-box-shadow: 0px 0px 25px 8px rgba(0,0,0,0.75); box-shadow: 0px 0px 25px 8px rgba(0,0,0,0.75); }
+
+  .game .page__container--right::before,
+  .word_select .page__container--right::before{z-index:2; display: block; content:''; position:absolute; width:70px; background-image:url(./assets/img/paper_divider.png);  transform:rotate(270deg) !important; top:-40% !important; left:45% !important; width:50px !important; height:510px !important; background-repeat: repeat-y; }
+
+  .game .page__container--left{ display: none; }
+
+  .hangman__container{}
+  .hangman__container__counter div > *{ transform:scale(.8) }
+  
+}
+
+@media (max-width:600px){
+  .App > .visible { transform:scale(.7)}
+  
+}
+@media (max-width:400px){
+  .App > .visible { transform:scale(.5)}
+
+}
+
+.page__container{box-sizing:border-box; padding-top: 30px; width:560px; height:100%; background:#e5dede;  background-image:url(./assets/img/paper_bg.jpg); display:flex; flex-direction: column; align-items: center; font-family: Fondamento;  }
 .page__container--left{ border-right: 2.5px solid black; -webkit-box-shadow: -12.5px 1px 31px 6px rgba(0,0,0,0.75); -moz-box-shadow: -12.5px 1px 31px 6px rgba(0,0,0,0.75); box-shadow: -12.5px 1px 31px 6px rgba(0,0,0,0.75);}
-.page__container--left::after{ z-index:2; display: block; content:''; right:47.6%; top:120px; position:absolute; width:70px; height:67%; transform:scale(1.15); background-image:url(./assets/img/paper_divider.png); }
+.page__container--left::after{ z-index:2; display: block; content:''; left:50%; top:30px; position:relative; width:70px; transform:scale(1.15); background-image:url(./assets/img/paper_divider.png); background-repeat:repeat-y; height:85%; }
 .page__container--right{ position:relative; border-left: 2.5px solid black; -webkit-box-shadow: 12.5px 1px 31px 6px rgba(0,0,0,0.75); -moz-box-shadow: 12.5px 1px 31px 6px rgba(0,0,0,0.75); box-shadow: 12.5px 1px 31px 6px rgba(0,0,0,0.75);}
 .page__container--right .page__container__triangle{ color:white; width:220px; height:220px; background-image:url(./assets/img/front_book_triangle.png); position:absolute; bottom:0px; right:0px; display: flex; align-items: flex-end; justify-content: flex-end; padding-right:20px; padding-bottom:25px; box-sizing:border-box; font-family:Rubik; font-size:1.5em; cursor:pointer}
 .page__container--right .page__container__triangle.disabled{ pointer-events: none; filter: grayscale(100%);}
+
+.page__container--right .page__container__points--container {display:none}
+
 
 /* HOMEPAGE */
 .start .page__container--left{ background:transparent; border:unset; box-shadow:unset; -moz-box-shadow:unset; -webkit-box-shadow:unset}
 .start .page__container--right{ box-sizing: border-box; border:unset; background:grey; background-image:url(./assets/img/front_book_cover.jpg); background-position: right top; color: white; -webkit-box-shadow: 0px 0px 25px 8px rgba(0,0,0,0.75); -moz-box-shadow: 0px 0px 25px 8px rgba(0,0,0,0.75); box-shadow: 0px 0px 25px 8px rgba(0,0,0,0.75); }
 .start .page__container--right::before{ display: block; content:''; left:-32px; top:-50px; transform:scale(.8); position:absolute; width:85px; height:115%; background-image:url(./assets/img/front_book_ring.png);  }
-.start .page__container--right .page__container__sticker{ -webkit-box-shadow: 0px 0px 25px -10px rgba(0,0,0,0.75); -moz-box-shadow: 0px 0px 25px -10px rgba(0,0,0,0.75); box-shadow: 0px 0px 25px -10px rgba(0,0,0,0.75); background:white; background-image:url(./assets/img/front_book_sticker_bg.jpg); width:225px; padding:45px; margin-top:5%; color:black; transform:rotate(1.25deg); text-align: center;}
+.start .page__container--right .page__container__sticker{ padding-top:20px; -webkit-box-shadow: 0px 0px 25px -10px rgba(0,0,0,0.75); -moz-box-shadow: 0px 0px 25px -10px rgba(0,0,0,0.75); box-shadow: 0px 0px 25px -10px rgba(0,0,0,0.75); background:white; background-image:url(./assets/img/front_book_sticker_bg.jpg); width:225px; padding:45px; margin-top:5%; color:black; transform:rotate(1.25deg); text-align: center;}
 .start .page__container--right .page__container__sticker::before{display: block; content:''; right:-40px; top:-20px; position:absolute; width:100px; height:85px; background-image:url(./assets/img/front_book_sticker.png); }
 .start .page__container--right .page__container__sticker::after{display: block; content:''; left:-30px; bottom:-30px; position:absolute; width:100px; height:85px; background-image:url(./assets/img/front_book_sticker.png); }
+.start .page__container--right .page__container__sticker form{ margin-top: 20px; }
 .start .page__container--right .page__container__sticker h2{ margin:unset; font-size:3.25em }
 .start .page__container--right .page__container__sticker label{ font-size:1.5em; margin-top:10px; }
-.start .page__container--right .page__container__sticker label::before{ transform:rotate(-3deg); content:''; width:100px; height:50px; z-index:-1; background-image:url(./assets/img/front_book_hangman.png); position:absolute; bottom:54px; right:0px; display: flex; background-repeat:no-repeat  }
-.start .page__container--right .page__container__sticker input{ font-family: Parisienne; font-weight:800; font-size:.9em; padding-top:5px; text-align:center; -moz-appearance: textfield; margin-left:2.5%; width: 70px; height:25px; z-index:9999; border-width:10px 5px; border-style:solid; border-color: rgba(12, 14, 90, 0.949);}
+.start .page__container--right .page__container__sticker label::before{ transform:rotate(-3deg); content:''; width:150px; height:55px; z-index:-1; background-image:url(./assets/img/front_book_hangman.png); position:absolute; bottom:54px; right:0px; display: flex; background-repeat:no-repeat  }
+.start .page__container--right .page__container__sticker input{ font-family: Fondamento; font-weight:800; font-size:.9em; padding-top:5px; text-align:center; -moz-appearance: textfield; margin-left:2.5%; width: 70px; height:25px; z-index:9999; border-width:10px 5px; border-style:solid; border-color: rgba(12, 14, 90, 0.949);}
 .start .page__container--left::after{ background-image:none; }
 
 
 /* WORD SELECT */
 .word_select .page__container--left[data-firstpage=true] { background:#424550; background-image:url(./assets/img/wordguess_book_cover.jpg); background-position: right top; }
-.word_select .page__container--right h2{ font-size:2.5em; }
-.word_select .page__container--right h3{ font-size:1em; font-family:Rubik; text-align:center }
-.word_select .page__container--right input{  border-width: 3px; border-style: solid; border-color: rgba(12, 14, 90, 0.949); padding: 10px; }
-
+.word_select .page__container--right h2{ font-size:2.5em; padding-top:14px; margin-bottom:26px; }
+.word_select .page__container--right h3{ font-size:1.3em; font-family:Rubik; text-align:center; margin-top:38px;}
+.word_select .page__container--right form{ display:flex; }
+.word_select .page__container--right input{  margin-top:-5px; border-width: 3px; border-style: solid; border-color: rgba(12, 14, 90, 0.949); padding: 10px; }
+.word_select .page__container--right .page__container--right--eyeIcon{ opacity:.5; display:inline-block; margin:0; margin-left:10px; background-image:url(./assets/img/icons8-eye-48.png); width:45px; height:30px; background-size:contain; background-repeat: no-repeat; background-position: bottom center;}
+.word_select .page__container--right .page__container--right--eyeIcon:hover{cursor:pointer; opacity:1;}
 /* GAME */
-.game h2{ font-size:2em; }
+.game h2{ font-size:2.4em; margin-top:14px; }
 
-.page__container__points{ display:flex; flex-direction: column; width:400px; }
+.page__container__points--container{ text-align: center; }
+
+.page__container__points{ display:flex; flex-direction: column; width:400px; margin-top:-10px; }
 
 .page__container__points ul{ display:flex; justify-content:space-around; list-style-type: none; text-align:center; padding:0px; margin:0px;}
 .page__container__points ul li{border:2px solid black}
@@ -113,9 +182,11 @@ h2, label, input { color: rgba(12, 14, 90, 0.949); }
 .page__container__points .page__container__points__players ul li,
 .page__container__points .page__container__points__heading ul li{width:50%; padding:10px 0px; font-weight:800; font-size:1.25em}
 
-.page__container--right h2.letters__container__endround--win{color:green; text-align:center; font-size:2.5em}
-.page__container--right h2.letters__container__endround--lose{color:red; text-align:center; font-size:2.5em}
+.page__container--right h2.letters__container__endround--win{color:green; text-align:center; font-size:2.5em; margin-bottom:0px;}
+.page__container--right h2.letters__container__endround--lose{color:red; text-align:center; font-size:2.5em; margin-bottom:0px;}
+.page__container--right .letters__container--points{ text-align: center; margin:0 auto; }
 
+.game .page__container--left::after{position: relative; min-height:85%; height:85%; top:-170px; }
 
 /* TODO
 @keyframes anim{

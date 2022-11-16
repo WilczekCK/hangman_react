@@ -107,7 +107,8 @@ class LettersPanel extends React.Component{
                     isWordGuessed={this.props.isWordGuessed}
                     isHangmanAlive={this.props.isHangmanAlive} 
                     changeScreen={this.props.changeScreen} 
-                    clearLetterPanel={this.clearLetterPanel} 
+                    clearLetterPanel={this.clearLetterPanel}
+                    healthLeft={ this.props.healthLeft }
                 />
             </div>
         )

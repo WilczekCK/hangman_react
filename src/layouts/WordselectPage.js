@@ -4,8 +4,17 @@ class WordselectPage extends React.Component{
     constructor(props){
         super(props);
 
-        this.state = { wordToGuess: 'Madagascar', isWordProvided: false, wordTip:'' }
+        this.state = { wordToGuess: '', isWordProvided: false, wordTip:'', inputType: 'password' }
         this.handleInputChange = this.handleInputChange.bind(this);
+        this.togglePasswordHashing = this.togglePasswordHashing.bind(this);
+    }
+
+    togglePasswordHashing(){
+        if( this.state.inputType === 'password' ) {
+            return this.setState({ inputType: 'text' });
+        }
+
+        return this.setState({ inputType: 'password' });
     }
 
     handleInputChange(e){
@@ -15,7 +24,7 @@ class WordselectPage extends React.Component{
             this.setState({ wordTip: 'The letters limit has been crossed' })
         } else {
             if ( wordProvided.length <= 5 ) {
-                this.setState({ wordTip: 'The word to guess must have minimum 5 letters' })
+                this.setState({ wordTip: 'The word to guess must have > 5 letters' })
                 this.setState({ isWordProvided: false })
             } else {
                 this.setState({ wordTip: 'All okay, you can start the game' })
@@ -33,7 +42,8 @@ class WordselectPage extends React.Component{
                 <div className="page__container page__container--right">
                     <h2> Type the word to guess: </h2>
                     <form onSubmit={(e) => e.preventDefault()}>
-                        <input type="text" name="maxMistakes" onChange={this.handleInputChange} value={this.state.wordToGuess} placeholder="Madagascar"/>
+                        <input type={this.state.inputType} name="maxMistakes" onChange={this.handleInputChange} value={this.state.wordToGuess} placeholder="Madagascar"/>
+                        <div onClick={this.togglePasswordHashing} class="page__container--right--eyeIcon"> </div>
                     </form>
 
                     <h3>{this.state.wordTip}</h3>

@@ -29,9 +29,10 @@ class HomePage extends React.Component{
                 <div className="page__container page__container--right">
                     <div className="page__container__sticker">
                         <h2> Hangman </h2>
+                        tries allowed: 
                         
                         <form onSubmit={(e) => e.preventDefault()}>
-                            <label> tries allowed: 
+                            <label> 
                                 <input type="number" name="maxMistakes" onChange={this.handleInputChange} value={this.state.maxMistakes} placeholder={ !this.state.maxMistakes.length ? '10' : '' }/>
                             </label>
                         </form>

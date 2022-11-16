@@ -1,5 +1,6 @@
 import React from 'react';
 import LettersPanel from '../components/LettersPanel';
+import PointsPanel from '../components/PointsPanel';
 import Hangman  from '../components/Hangman';
 
 class GamePage extends React.Component{
@@ -11,33 +12,16 @@ class GamePage extends React.Component{
         return (
             <div className={this.props.classList}>
                 <div className="page__container page__container--left">
-                    <h2> Player points </h2>
-
-                    <div className="page__container__points">
-                        <div className="page__container__points__heading">
-                            <ul>
-                                <li>Player 1</li>
-                                <li>Player 2</li>
-                            </ul>
-                        </div>
-                        
-                        <div className="page__container__points__players">
-                            <div className="page__container__points__players--a">
-                                4
-                            </div>
-                            <div className="page__container__points__players--b">
-                                2
-                            </div>
-                        </div>
-
-                    </div>
+                    <PointsPanel scores={this.props.scores} />
                 </div>
 
                 <div className="page__container page__container--right">
-                    <h2> Player guessing... </h2>
+                    <h2> Player {this.props.playerGuessing} guessing... </h2>
                     
                     <Hangman healthLeft={this.props.healthLeft} maxMistakes={this.props.maxMistakes}/>
-                    <LettersPanel isWordGuessed={this.props.isWordGuessed} changeScreen={this.props.changeScreen} changeRoundStatus={this.props.changeRoundStatus} isHangmanAlive={ this.props.healthLeft !== 0 } onWrongLetter={this.props.onWrongLetter} wordToGuess={this.props.wordToGuess}/>
+                    <LettersPanel healthLeft={this.props.healthLeft} isWordGuessed={this.props.isWordGuessed} changeScreen={this.props.changeScreen} changeRoundStatus={this.props.changeRoundStatus} isHangmanAlive={ this.props.healthLeft !== 0 } onWrongLetter={this.props.onWrongLetter} wordToGuess={this.props.wordToGuess}/>
+
+                    <PointsPanel scores={this.props.scores} />
                 </div>
             </div>
         );

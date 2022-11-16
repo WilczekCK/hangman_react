@@ -14,8 +14,9 @@ class LetterInput extends React.Component{
         this.inputChange = this.inputChange.bind(this);
         this.assignLetterToArray = this.assignLetterToArray.bind(this);
         this.isLetterInWordToGuess = this.isLetterInWordToGuess.bind(this);
-        
-        this.allLettersUnique = Array.from(String.prototype.concat(...new Set(props.wordToGuess.toLowerCase())));
+        this.createLettersUniqueArray = this.createLettersUniqueArray.bind(this);
+
+        this.allLettersUnique = this.createLettersUniqueArray();
     }
 
 
@@ -33,8 +34,15 @@ class LetterInput extends React.Component{
             })
         }
 
-        this.allLettersUnique = Array.from(String.prototype.concat(...new Set(this.props.wordToGuess.toLowerCase())));
+        this.createLettersUniqueArray();
         return true;
+    }
+
+    createLettersUniqueArray(){
+        let dividedLettersFromWord = Array.from(String.prototype.concat(...new Set(this.props.wordToGuess.toLowerCase())));
+        dividedLettersFromWord = dividedLettersFromWord.filter((val) => val !== ' ');
+
+        this.allLettersUnique = dividedLettersFromWord;
     }
 
     isLetterInWordToGuess(){
@@ -85,6 +93,8 @@ class LetterInput extends React.Component{
         // WIN
         queueMicrotask(() => {
             const isWordGuessed = this.allLettersUnique.every(v => this.state.properLetters.includes(v));
+
+            console.log(this.allLettersUnique, this.state.properLetters);
 
             if (isWordGuessed) {
                 this.props.changeRoundStatus( 'win' );
