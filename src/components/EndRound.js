@@ -13,14 +13,14 @@ class EndRound extends React.Component{
                     (
                         <>
                             <h2 className="letters__container__endround--win">You win!</h2>
-                            <div className="letters__container--points">+ 10 points</div>
+                            <div className="letters__container--points">+ {this.props.healthLeft} points</div>
                         </>
                     )
                     :
                     (
                         <>
                             <h2 className="letters__container__endround--lose">You lose!</h2>
-                            <div className="letters__container--points">- 10 points</div>
+                            <div className="letters__container--points">No points for you</div>
                         </>
                     )
                      }
