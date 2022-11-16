@@ -10,7 +10,7 @@ import React from 'react';
 class App extends React.Component{
   constructor(){
     super();
-    this.state = {playerGuessing: 1, score: { playerOne: 0, playerTwo: 0 }, healthAmount: 10, maxMistakes: 10, isWordGuessed: false, actualScreen: 'start', previousScreen: 'start', wordToGuess: ''};
+    this.state = {playerGuessing: 1, playerOneScore: 0, playerTwoScore: 0, healthAmount: 10, maxMistakes: 10, isWordGuessed: false, actualScreen: 'start', previousScreen: 'start', wordToGuess: ''};
     this.dropHealth = this.dropHealth.bind(this);
     this.changeScreen = this.changeScreen.bind(this);
     this.changeRoundStatus = this.changeRoundStatus.bind(this);
@@ -53,6 +53,7 @@ class App extends React.Component{
     // end of round
     if ( this.state.actualScreen === 'game' ) {
       this.setState((state, props) => ({
+        [state.playerGuessing === 1 ? 'playerOneScore' : 'playerTwoScore' ]: state.healthAmount,
         healthAmount: state.maxMistakes,
         wordToGuess: '',
         isWordGuessed: '',
