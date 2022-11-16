@@ -85,6 +85,7 @@ class App extends React.Component{
           wordToGuess={this.state.wordToGuess}
           changeScreen={this.changeScreen}
           changeRoundStatus={this.changeRoundStatus}
+          scores={ {playerOne: this.state.playerOneScore, playerTwo: this.state.playerTwoScore} }
         />
 
         <WordselectPage 

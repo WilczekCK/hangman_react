@@ -5,14 +5,14 @@ import Hangman  from '../components/Hangman';
 
 class GamePage extends React.Component{
     constructor(props){
-        super(props);
+        super();
     }
 
     render(){
         return (
             <div className={this.props.classList}>
                 <div className="page__container page__container--left">
-                    <PointsPanel />
+                    <PointsPanel scores={this.props.scores} />
                 </div>
 
                 <div className="page__container page__container--right">

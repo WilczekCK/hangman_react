@@ -2,12 +2,12 @@ import React from 'react';
 
 class PointsPanel extends React.Component{
     constructor(props){
-        super();
+        super(props);
     }
 
 
     render(){ 
-        //TODO - JUST A PLACEHOLDER NOW
+        const {playerOne, playerTwo} = this.props.scores;
         return (
             <>
                 <h2> Player points </h2>
@@ -22,10 +22,10 @@ class PointsPanel extends React.Component{
                     
                     <div className="page__container__points__players">
                         <div className="page__container__points__players--a">
-                            4
+                            {playerOne}
                         </div>
                         <div className="page__container__points__players--b">
-                            2
+                            {playerTwo}
                         </div>
                     </div>
 
