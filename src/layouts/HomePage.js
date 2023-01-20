@@ -35,7 +35,12 @@ class HomePage extends React.Component{
                         <li> If letter is already guessed, you wont lose health after typing it again</li>
                     </ol>
 
-                    <b>Design of game made by Natalia Płocka</b>
+                    <div>
+                        <b>Authors</b>
+                        <br/>
+                        <a href="https://www.behance.net/nataliaplocka" target='_blank'>Behance</a>
+                        <a href="https://github.com/WilczekCK" target='_blank'>Github</a>
+                    </div>
                 </div>
                 <div className="page__container page__container--right">
                     <div className="page__container__sticker">
