@@ -25,7 +25,23 @@ class HomePage extends React.Component{
     render(){
         return (
             <div className={this.props.classList}>
-                <div className="page__container page__container--left"></div>
+                <div className="page__container page__container--left">
+                    <h2>The hotseat version of very popular game.</h2>
+                    <p>It was made as a first project after reading documentation of React (the old one, with class components, unfortunately)</p>
+                    <p>Below some informations that you should know to start:</p>
+                    <ol>
+                        <li> There is no limit of points, end when you want to </li>
+                        <li> Points are calculated of remaining healths </li>
+                        <li> If letter is already guessed, you wont lose health after typing it again</li>
+                    </ol>
+
+                    <div>
+                        <b>Authors</b>
+                        <br/>
+                        <a href="https://www.behance.net/nataliaplocka" target='_blank'>Behance</a>
+                        <a href="https://github.com/WilczekCK" target='_blank'>Github</a>
+                    </div>
+                </div>
                 <div className="page__container page__container--right">
                     <div className="page__container__sticker">
                         <h2> Hangman </h2>
